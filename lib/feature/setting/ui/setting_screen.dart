@@ -277,7 +277,7 @@ class _SettingScreenState extends State<SettingScreen> {
           child: Switch(
             value: value,
             onChanged: onChanged,
-            activeColor: Colors.white,
+            activeThumbColor: Colors.white,
             activeTrackColor: Colors.blue.shade400,
             inactiveTrackColor: Colors.grey.shade300,
           ),

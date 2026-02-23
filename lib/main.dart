@@ -8,6 +8,7 @@ import 'package:grade_project/core/helper/shared_prefrance_helper.dart';
 import 'package:grade_project/feature/image%20procesing/image_in.dart';
 import 'package:grade_project/feature/image%20procesing/imagequbit_cubit.dart';
 import 'package:grade_project/feature/login/ui/login_screen.dart';
+import 'package:grade_project/feature/onpord/get_started_screen.dart';
 import 'package:sizer/sizer.dart';
 
 void main() async {
@@ -33,7 +34,7 @@ class GradeProject extends StatelessWidget {
               BlocProvider(create: (context) => ImagequbitCubit()),
               //  BlocProvider(create: (context) => ImagequbitCubit()()),
             ],
-            child: isLogedInUser == true ? ImageIn() : LoginScreen(),
+            child:GetStartedScreen()// isLogedInUser == true ? ImageIn() : LoginScreen(),
           ),
         );
       },
