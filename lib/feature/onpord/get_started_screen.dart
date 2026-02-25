@@ -2,12 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_project/core/helper/spacing.dart';
+import 'package:grade_project/feature/sellect%20roll/ui/select_role_screen.dart';
 import 'package:sizer/sizer.dart';
 
 class GetStartedScreen extends StatelessWidget {
-  const GetStartedScreen({super.key, this.onGetStarted});
+  const GetStartedScreen({super.key,});
 
-  final VoidCallback? onGetStarted;
+  // final VoidCallback? onGetStarted;
 
   @override
   Widget build(BuildContext context) {
@@ -46,17 +47,7 @@ class GetStartedScreen extends StatelessWidget {
                             opacity: const AlwaysStoppedAnimation(0.4),
                           ),
                         ),
-                        Positioned.fill(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Color(0xFF4E8EC0).withOpacity(0.1),
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(70.sp),
-                                bottomRight: Radius.circular(70.sp),
-                              ),
-                            ),
-                          ),
-                        ),
+                        BigRoundRectangle(),
                         Positioned(
                           top: 6.h,
                           right: 4.w,
@@ -90,7 +81,13 @@ class GetStartedScreen extends StatelessWidget {
                   child: SizedBox(
                     width: 80.w,
                     child: ElevatedButton(
-                      onPressed: onGetStarted ?? () {},
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => const SelectRoleScreen(),
+                          ),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF4E8EC0),
                         foregroundColor: Colors.white,
@@ -121,6 +118,27 @@ class GetStartedScreen extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class BigRoundRectangle extends StatelessWidget {
+  const BigRoundRectangle({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned.fill(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Color(0xFF4E8EC0).withOpacity(0.1),
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(70.sp),
+            bottomRight: Radius.circular(70.sp),
           ),
         ),
       ),

@@ -9,6 +9,7 @@ import 'package:grade_project/feature/image%20procesing/image_in.dart';
 import 'package:grade_project/feature/image%20procesing/imagequbit_cubit.dart';
 import 'package:grade_project/feature/login/ui/login_screen.dart';
 import 'package:grade_project/feature/onpord/get_started_screen.dart';
+import 'package:grade_project/feature/sellect%20roll/ui/select_role_screen.dart';
 import 'package:sizer/sizer.dart';
 
 void main() async {

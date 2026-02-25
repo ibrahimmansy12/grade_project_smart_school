@@ -1,4 +1,9 @@
+// feature/sellect roll/ui/select_role_screen.dart
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:grade_project/core/helper/spacing.dart';
+import 'package:grade_project/feature/login/ui/login_screen.dart';
+import 'package:grade_project/feature/sellect%20roll/ui/widgets/role_card.dart';
 import 'package:sizer/sizer.dart';
 
 class SelectRoleScreen extends StatefulWidget {
@@ -37,35 +42,38 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  IconButton(
-                    padding: EdgeInsets.zero,
-                    constraints: const BoxConstraints(),
-                    onPressed: () => Navigator.of(context).maybePop(),
-                    icon: Icon(
-                      Icons.arrow_back,
-                      size: 28.sp,
-                      color: const Color(0xFF2C2C2C),
-                    ),
-                  ),
-                  SizedBox(height: 1.2.h),
+                  verticalSpace(6)
+                  // IconButton(
+                  //   padding: EdgeInsets.zero,
+                  //   constraints: const BoxConstraints(),
+                  //   onPressed: () => Navigator.of(context).maybePop(),
+                  //   icon: Icon(
+                  //     Icons.arrow_back,
+                  //     size: 28.sp,
+                  //     color: const Color(0xFF2C2C2C),
+                  //   ),
+                  // ),
+                ,  SizedBox(height: 1.2.h),
                   Center(
                     child: Text(
                       'Select Role',
-                      style: TextStyle(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.w700,
-                        color: const Color(0xFF111111),
+                      style: GoogleFonts.poppins(
+                        fontSize: 26.px,
+                        fontWeight: FontWeight.w600,
+                        //  letterSpacing: 1,
+                        color: Colors.black,
                       ),
                     ),
                   ),
-                  SizedBox(height: 0.8.h),
+                  verticalSpace(0.06.h),
                   Center(
                     child: Text(
                       'please select role to continue',
-                      style: TextStyle(
-                        fontSize: 11.sp,
-                        color: Colors.grey.shade600,
-                        fontWeight: FontWeight.w500,
+                      style: GoogleFonts.poppins(
+                        fontSize: 13.px,
+                        fontWeight: FontWeight.w600,
+                        //  letterSpacing: 1,
+                        color: Colors.black54,
                       ),
                     ),
                   ),
@@ -73,9 +81,9 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                   Row(
                     children: [
                       Expanded(
-                        child: _RoleCard(
+                        child: RoleCard(
                           label: 'student',
-                          icon: Icons.school_rounded,
+                          image: 'assets/student_image.png',
                           selected: selectedRole == 'student',
                           onTap: () {
                             setState(() {
@@ -86,9 +94,9 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                       ),
                       SizedBox(width: 6.w),
                       Expanded(
-                        child: _RoleCard(
+                        child: RoleCard(
                           label: 'parent',
-                          icon: Icons.family_restroom_rounded,
+                          image: 'assets/parent_image.png',
                           selected: selectedRole == 'parent',
                           onTap: () {
                             setState(() {
@@ -105,7 +113,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                     child: ElevatedButton(
                       onPressed: selectedRole == null
                           ? null
-                          : (widget.onNext ?? () {}),
+                          : (widget.onNext ?? () {Navigator.of( context).push(MaterialPageRoute(builder: (context) => const LoginScreen()));}),
                       style: ElevatedButton.styleFrom(
                         disabledBackgroundColor: const Color(0xFF75ADD7),
                         backgroundColor: const Color(0xFF3F83B8),
@@ -118,10 +126,11 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                       ),
                       child: Text(
                         'NEXT',
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w700,
-                          letterSpacing: 0.6,
+                        style: GoogleFonts.poppins(
+                          fontSize: 26.px,
+                          fontWeight: FontWeight.w600,
+                          //  letterSpacing: 1,
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -130,61 +139,6 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class _RoleCard extends StatelessWidget {
-  const _RoleCard({
-    required this.label,
-    required this.icon,
-    required this.selected,
-    required this.onTap,
-  });
-
-  final String label;
-  final IconData icon;
-  final bool selected;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(16.sp),
-      elevation: 4,
-      child: InkWell(
-        borderRadius: BorderRadius.circular(16.sp),
-        onTap: onTap,
-        child: Container(
-          padding: EdgeInsets.symmetric(vertical: 2.h),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16.sp),
-            border: Border.all(
-              color: selected ? const Color(0xFF3F83B8) : Colors.transparent,
-              width: 2,
-            ),
-          ),
-          child: Column(
-            children: [
-              CircleAvatar(
-                radius: 28.sp,
-                backgroundColor: const Color(0xFFDDE5F3),
-                child: Icon(icon, size: 30.sp, color: const Color(0xFF4C77A9)),
-              ),
-              SizedBox(height: 1.2.h),
-              Text(
-                label,
-                style: TextStyle(
-                  color: const Color(0xFF2F5F95),
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ],
-          ),
         ),
       ),
     );
