@@ -9,6 +9,12 @@ class WelcomeBackPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+          floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const WelcomeBack2Page()),
+        ),
+        child: Icon(Icons.keyboard_double_arrow_right_outlined, size: 20.sp),
+      ),
       backgroundColor: const Color(0xFFF6F7FB),
       body: SafeArea(
         child: Padding(

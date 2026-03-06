@@ -1,7 +1,6 @@
 // feature/login/ui/login_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grade_project/feature/image%20procesing/image_in.dart';
 import 'package:grade_project/feature/login/logic/login_cubit.dart';
 import 'package:sizer/sizer.dart';
@@ -158,14 +157,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  Positioned(
-                    top: 1.h,
+                  Positioned.fill(
+                    top: -40.h,
                     left: 0,
                     right: 0,
                     child: Center(
-                      child: SvgPicture.asset(
+                      child: Image.asset(
                         //  color: const Color(0xFF4C77A9),
-                        'assets/svg/login_image.svg',
+                        'assets/onpord_home_new.png',
                         height: 30.h,
                         width: 50.w,
                         //  fit: BoxFit.cover,

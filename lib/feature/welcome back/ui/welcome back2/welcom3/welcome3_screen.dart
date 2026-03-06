@@ -38,7 +38,16 @@ class Welcome3Screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
+       floatingActionButton:
+    FloatingActionButton(
+      onPressed: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => RepetedScreen()),
+      ),
+      child: Icon(Icons.keyboard_double_arrow_right_outlined, size: 20.sp),
+    ),
       backgroundColor: const Color(0xFFF6F7FB),
       body: SafeArea(
         child: Padding(
@@ -83,12 +92,12 @@ class Welcome3Screen extends StatelessWidget {
                       ),
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => RepetedScreen(),
-                            ),
-                          );
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (context) => RepetedScreen(),
+                          //   ),
+                          // );
                         },
                         child: Center(
                           child: Icon(

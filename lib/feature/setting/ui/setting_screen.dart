@@ -1,7 +1,7 @@
 // feature/setting/ui/setting_screen.dart
 import 'package:flutter/material.dart';
 import 'package:grade_project/core/helper/spacing.dart';
-import 'package:grade_project/feature/image%20procesing/image_in.dart';
+import 'package:grade_project/feature/welcome%20back/ui/welcome_back.dart';
 import 'package:sizer/sizer.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -19,7 +19,14 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF6F7FB),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => WelcomeBackPage()),
+        ),
+        child: Icon(Icons.keyboard_double_arrow_right_outlined, size: 20.sp),
+      ),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 3.h),
@@ -184,32 +191,33 @@ class _SettingScreenState extends State<SettingScreen> {
                   ),
                 ),
 
-                SizedBox(height: 3.h),
+                SizedBox(height: 12.h),
 
                 // Logout button
                 Center(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      elevation: 0,
+                      backgroundColor: const Color.fromARGB(255, 244, 242, 242),
+                      elevation: 2.h,
+                      shadowColor: Colors.black,
                       padding: EdgeInsets.symmetric(
-                        horizontal: 35.w,
-                        vertical: 2.h,
+                        horizontal: 32.w,
+                        vertical: 1.5.h,
                       ),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.sp),
                       ),
-                      side: BorderSide(color: Colors.red.shade200),
+                      //  side: BorderSide(color: Colors.red.shade200),
                     ),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ImageIn()),
-                      );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => ImageIn()),
+                      // );
                     },
                     child: Text(
                       'Logout',
-                      style: TextStyle(fontSize: 18.sp + 8, color: Colors.red),
+                      style: TextStyle(fontSize: 18.sp + 8, color: const Color.fromARGB(255, 229, 37, 24)),
                     ),
                   ),
                 ),

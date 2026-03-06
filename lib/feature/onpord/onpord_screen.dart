@@ -1,12 +1,12 @@
-// feature/onpord/get_started_screen.dart
+// feature/onpord/onpord_screen.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_project/core/helper/spacing.dart';
 import 'package:grade_project/feature/sellect%20roll/ui/select_role_screen.dart';
 import 'package:sizer/sizer.dart';
 
-class GetStartedScreen extends StatelessWidget {
-  const GetStartedScreen({super.key,});
+class OnpordScreen extends StatelessWidget {
+  const OnpordScreen({super.key});
 
   // final VoidCallback? onGetStarted;
 
@@ -25,10 +25,10 @@ class GetStartedScreen extends StatelessWidget {
                 // const SizedBox(height: 24),
                 Center(
                   child: Container(
-                    height: 35.h,
+                    height: 37.h,
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(28),
+                      borderRadius: BorderRadius.circular(14.h),
                       color: Colors.white,
                       // gradient: const LinearGradient(
                       //   begin: Alignment.topLeft,
@@ -39,10 +39,12 @@ class GetStartedScreen extends StatelessWidget {
                     child: Stack(
                       children: [
                         Positioned(
-                          right: 0,
-                          left: 0,
+                          top:-7.h,
+                          right: 0.w,
+                          left: 0.w,
                           child: Image.asset(
-                            "assets/onpord_back_image.jpg",
+
+                            "assets/g1 (2).png",
                             fit: BoxFit.cover,
                             opacity: const AlwaysStoppedAnimation(0.4),
                           ),
@@ -50,12 +52,12 @@ class GetStartedScreen extends StatelessWidget {
                         BigRoundRectangle(),
                         Positioned(
                           top: 6.h,
-                          right: 4.w,
-                          left: 4.w,
+                          right: 10.w,
+                          left: 10.w,
                           child: Image.asset(
-                            "assets/onpord_page.png",
-                            fit: BoxFit.cover,
-                            height: 40.h,
+                            "assets/onpord_home_new.png",
+                            fit: BoxFit.contain,
+                            height: 28.h,
                           ),
                         ),
                       ],
@@ -126,9 +128,7 @@ class GetStartedScreen extends StatelessWidget {
 }
 
 class BigRoundRectangle extends StatelessWidget {
-  const BigRoundRectangle({
-    super.key,
-  });
+  const BigRoundRectangle({super.key});
 
   @override
   Widget build(BuildContext context) {

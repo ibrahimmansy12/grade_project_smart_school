@@ -28,6 +28,12 @@ class _WelcomeBack2PageState extends State<WelcomeBack2Page> {
     final progress = _step / _total;
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const Welcome3Screen()),
+        ),
+        child: Icon(Icons.keyboard_double_arrow_right_outlined, size: 20.sp),
+      ),
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: SafeArea(
         child: Padding(
@@ -40,12 +46,16 @@ class _WelcomeBack2PageState extends State<WelcomeBack2Page> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Icon(Icons.arrow_back, size: 20.sp, color: Colors.black87),
-                    Icon(Icons.notifications, size: 24.sp, color: Colors.black54),
+                    Icon(
+                      Icons.notifications,
+                      size: 24.sp,
+                      color: Colors.black54,
+                    ),
                   ],
                 ),
-            
+
                 SizedBox(height: 2.h),
-            
+
                 // progress
                 // Row(
                 //   children: [
@@ -78,7 +88,7 @@ class _WelcomeBack2PageState extends State<WelcomeBack2Page> {
                 //   ],
                 // ),
                 SizedBox(height: 4.h),
-            
+
                 Text(
                   'How often do you feel tired or fatigued?',
                   style: TextStyle(
@@ -87,9 +97,9 @@ class _WelcomeBack2PageState extends State<WelcomeBack2Page> {
                     color: Color(0xFF11223A),
                   ),
                 ),
-            
+
                 SizedBox(height: 3.h),
-            
+
                 // small choices
                 Row(
                   children: List.generate(_opts.length, (i) {
@@ -105,7 +115,9 @@ class _WelcomeBack2PageState extends State<WelcomeBack2Page> {
                             color: Colors.grey.shade100,
                             borderRadius: BorderRadius.circular(16.sp),
                             border: Border.all(
-                              color: sel ? Color(0xFF2E6EB3) : Colors.transparent,
+                              color: sel
+                                  ? Color(0xFF2E6EB3)
+                                  : Colors.transparent,
                               width: sel ? 0.6.w : 0,
                             ),
                             boxShadow: [
@@ -150,15 +162,18 @@ class _WelcomeBack2PageState extends State<WelcomeBack2Page> {
                     );
                   }),
                 ),
-            
+
                 SizedBox(height: 3.h),
-            
+
                 // large card
                 GestureDetector(
                   onTap: () {},
                   child: Container(
                     width: double.infinity,
-                    padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 3.h),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 4.w,
+                      vertical: 3.h,
+                    ),
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 245, 241, 241),
                       borderRadius: BorderRadius.circular(16.sp),
@@ -202,9 +217,9 @@ class _WelcomeBack2PageState extends State<WelcomeBack2Page> {
                     ),
                   ),
                 ),
-            
+
                 SizedBox(height: 2.5.h),
-            
+
                 Center(
                   child: ElevatedButton(
                     onPressed: () {},
@@ -225,9 +240,8 @@ class _WelcomeBack2PageState extends State<WelcomeBack2Page> {
                     ),
                   ),
                 ),
-            
-             //   Spacer(),
-            
+
+                //   Spacer(),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -244,14 +258,13 @@ class _WelcomeBack2PageState extends State<WelcomeBack2Page> {
                     child: GestureDetector(
                       onTap: () {
                         Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Welcome3Screen(),
-                              ),
-                            );
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Welcome3Screen(),
+                          ),
+                        );
                       },
                       child: Ink(
-                        
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [Color(0xFF4A90E2), Color(0xFF2E6EB3)],

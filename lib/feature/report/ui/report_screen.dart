@@ -9,7 +9,15 @@ class ReportScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
+         floatingActionButton: FloatingActionButton(
+        onPressed: () =>  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => RiskScreen()),
+                  ),
+        child: Icon(Icons.keyboard_double_arrow_right_outlined, size: 20.sp),
+      ),
       backgroundColor: const Color(0xFFF6F7FB),
       body: SafeArea(
         child: Padding(
@@ -537,10 +545,10 @@ class DateDownloadPdf extends StatelessWidget {
               // SizedBox(width: 2.w),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => RiskScreen()),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => RiskScreen()),
+                  // );
                 },
                 child: Text(
                   'Download PDF',
