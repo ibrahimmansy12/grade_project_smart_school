@@ -1,7 +1,7 @@
 // feature/report with date/report2_screen.dart
 import 'package:flutter/material.dart';
-import 'package:grade_project/feature/image%20reports/image_reports_screen.dart';
-import 'package:grade_project/feature/notification/notification_screen.dart';
+import 'package:grade_project/feature/image%20reports/ui/image_reports_screen.dart';
+import 'package:grade_project/feature/notification/ui/notification_screen.dart';
 import 'package:sizer/sizer.dart';
 
 class Report2Screen extends StatelessWidget {
@@ -164,7 +164,7 @@ class _ReportAlertCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _AlertPalette palette = _paletteFor(item.level);
+    final _AlertPalette palette = paletteFor(item.level);
 
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.55.h),
@@ -216,7 +216,7 @@ class _ReportAlertCard extends StatelessWidget {
     );
   }
 
-  _AlertPalette _paletteFor(_AlertLevel level) {
+  _AlertPalette paletteFor(_AlertLevel level) {
     switch (level) {
       case _AlertLevel.warning:
         return const _AlertPalette(

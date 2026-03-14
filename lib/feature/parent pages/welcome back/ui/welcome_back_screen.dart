@@ -1,7 +1,7 @@
 // feature/parent pages/welcome back/ui/welcome_back_screen.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/home_select/home_select_screen.dart';
+import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/home_select/ui/home_select_screen.dart';
 import 'package:sizer/sizer.dart';
 
 class WelcomeBackScreen extends StatelessWidget {

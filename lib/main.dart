@@ -5,12 +5,11 @@ import 'package:grade_project/core/helper/bloc_observer.dart';
 import 'package:grade_project/core/helper/constance_helper.dart';
 import 'package:grade_project/core/helper/extention.dart';
 import 'package:grade_project/core/helper/shared_prefrance_helper.dart';
-import 'package:grade_project/feature/image%20procesing/image_in.dart';
 import 'package:grade_project/feature/image%20procesing/imagequbit_cubit.dart';
+import 'package:grade_project/feature/image%20reports/ui/image_reports_screen.dart';
 import 'package:grade_project/feature/login/ui/login_screen.dart';
-import 'package:grade_project/feature/onpord/onpord_screen.dart';
-import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/welcome_back_screen.dart';
-import 'package:grade_project/feature/sellect%20roll/ui/select_role_screen.dart';
+import 'package:grade_project/feature/notification/ui/notification_screen.dart';
+import 'package:grade_project/feature/onpord/ui/onpord_screen.dart';
 import 'package:sizer/sizer.dart';
 
 void main() async {

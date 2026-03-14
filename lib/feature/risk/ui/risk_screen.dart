@@ -1,7 +1,7 @@
 // feature/risk/ui/risk_screen.dart
 import 'package:flutter/material.dart';
 import 'package:grade_project/core/helper/spacing.dart';
-import 'package:grade_project/feature/notification/notification_screen.dart';
+import 'package:grade_project/feature/notification/ui/notification_screen.dart';
 import 'package:grade_project/feature/report%20with%20date/report2_screen.dart';
 import 'package:grade_project/feature/report/ui/report_screen.dart';
 import 'package:grade_project/feature/risk/ui/widgets/risk_card.dart';
