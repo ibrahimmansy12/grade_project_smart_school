@@ -1,12 +1,13 @@
-// feature/parent pages/welcome back/ui/home_select/home_select_screen.dart
+// feature/parent pages/welcome back/ui/home_select/ui/home_select_screen.dart
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+// feature/parent pages/welcome back/ui/home_select/ui/home_select_screen.dart
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:grade_project/core/helper/spacing.dart';
-import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/welcome_back_screen.dart';
-import 'package:grade_project/feature/quistions/ui/questions2ans_screen.dart';
-import 'package:grade_project/feature/repeted/ui/repeted_screen.dart';
-import 'package:grade_project/feature/sellect%20roll/ui/widgets/role_card.dart';
+import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/home_select/ui/widgets/home_selectscreen_button.dart';
+import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/home_select/ui/widgets/sellect_containers.dart';
+import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/home_select/ui/widgets/upper_page_strings.dart';
 import 'package:sizer/sizer.dart';
+
+import 'package:grade_project/core/helper/spacing.dart';
 
 class HomeSelectScreen extends StatefulWidget {
   const HomeSelectScreen({super.key, this.onNext});
@@ -19,6 +20,12 @@ class HomeSelectScreen extends StatefulWidget {
 
 class _SelectRoleScreenState extends State<HomeSelectScreen> {
   String? selectedRole;
+
+  void _onRoleSelected(String role) {
+    setState(() {
+      selectedRole = role;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +51,7 @@ class _SelectRoleScreenState extends State<HomeSelectScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  verticalSpace(6),
+                  verticalSpace(7.2),
                   // IconButton(
                   //   padding: EdgeInsets.zero,
                   //   constraints: const BoxConstraints(),
@@ -55,122 +62,16 @@ class _SelectRoleScreenState extends State<HomeSelectScreen> {
                   //     color: const Color(0xFF2C2C2C),
                   //   ),
                   // ),
-                  SizedBox(height: 1.2.h),
-                  Center(
-                    child: Text(
-                      'Select Role',
-                      style: GoogleFonts.poppins(
-                        fontSize: 26.px,
-                        fontWeight: FontWeight.w600,
-                        //  letterSpacing: 1,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  verticalSpace(0.06.h),
-                  Center(
-                    child: Text(
-                      'please select role to continue',
-                      style: GoogleFonts.poppins(
-                        fontSize: 13.px,
-                        fontWeight: FontWeight.w600,
-                        //  letterSpacing: 1,
-                        color: Colors.black54,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 3.5.h),
-                  Wrap(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(2.h),
-                        child: RoleCard(
-                          label: 'student',
-                          image: 'assets/home_selectscreen_overview.png',
-                          selected: selectedRole == 'student',
-                          onTap: () {
-                            setState(() {
-                              selectedRole = 'student';
-                            });
-                          },
-                        ),
-                      ),
-                      SizedBox(width: 6.w),
-                      Padding(
-                        padding: EdgeInsets.all(2.h),
-                        child: Stack(
-                          children: [
-                            RoleCard(
-                              label: 'parent',
-                              image: 'assets/home_selectscreen_report.png',
-                              selected: selectedRole == 'parent',
-                              onTap: () {
-                                setState(() {
-                                  selectedRole = 'parent';
-                                });
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(2.h),
-                        child: RoleCard(
-                          label: 'student',
-                          image: 'assets/home_selectscreen_settings.png',
-                          selected: selectedRole == 'student',
-                          onTap: () {
-                            setState(() {
-                              selectedRole = 'student';
-                            });
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
+                  // SizedBox(height: 1.2.h),
+                  UpperPageString(),
+                  verticalSpace(3.5),
                   SizedBox(height: 8.h),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: selectedRole == null
-                          ? null
-                          : (widget.onNext ??
-                                () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) => QuestionsScreen2ans(
-                                        onNextTap: () =>
-                                            Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                builder: (_) =>
-                                                    RepetedScreen(),
-                                              ),
-                                            ),
-                                      ),
-                                    ),
-                                  );
-                                }),
-                      style: ElevatedButton.styleFrom(
-                        disabledBackgroundColor: const Color(0xFF75ADD7),
-                        backgroundColor: const Color(0xFF3F83B8),
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(28.sp),
-                        ),
-                        padding: EdgeInsets.symmetric(vertical: 1.7.h),
-                        elevation: 3,
-                      ),
-                      child: Text(
-                        'NEXT',
-                        style: GoogleFonts.poppins(
-                          fontSize: 26.px,
-                          fontWeight: FontWeight.w600,
-                          //  letterSpacing: 1,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                  SellectContainers(
+                    selectedRole: selectedRole,
+                    onRoleSelected: _onRoleSelected,
                   ),
+                  verticalSpace(3.5),
+                  HomeSelectScreenButton(selectedRole: selectedRole, widget: widget),
                 ],
               ),
             ),

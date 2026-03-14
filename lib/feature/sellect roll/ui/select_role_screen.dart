@@ -82,7 +82,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                     children: [
                       Expanded(
                         child: RoleCard(
-                          label: 'student',
+                          // label: 'student',
                           image: 'assets/student_image.png',
                           selected: selectedRole == 'student',
                           onTap: () {
@@ -95,7 +95,7 @@ class _SelectRoleScreenState extends State<SelectRoleScreen> {
                       SizedBox(width: 6.w),
                       Expanded(
                         child: RoleCard(
-                          label: 'parent',
+                          // label: 'parent',
                           image: 'assets/parent_image.png',
                           selected: selectedRole == 'parent',
                           onTap: () {

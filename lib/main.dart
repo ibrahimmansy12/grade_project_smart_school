@@ -10,6 +10,8 @@ import 'package:grade_project/feature/image%20reports/ui/image_reports_screen.da
 import 'package:grade_project/feature/login/ui/login_screen.dart';
 import 'package:grade_project/feature/notification/ui/notification_screen.dart';
 import 'package:grade_project/feature/onpord/ui/onpord_screen.dart';
+import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/home_select/ui/home_select_screen.dart';
+import 'package:grade_project/feature/quistions/ui/questions2ans_screen.dart';
 import 'package:sizer/sizer.dart';
 
 void main() async {
@@ -35,7 +37,7 @@ class GradeProject extends StatelessWidget {
               BlocProvider(create: (context) => ImagequbitCubit()),
               //  BlocProvider(create: (context) => ImagequbitCubit()()),
             ],
-            child:OnpordScreen()// isLogedInUser == true ? ImageIn() : LoginScreen(),
+            child:QuestionsScreen2ans()// isLogedInUser == true ? ImageIn() : LoginScreen(),
           ),
         );
       },

@@ -5,13 +5,13 @@ import 'package:sizer/sizer.dart';
 
 class RoleCard extends StatelessWidget {
   const RoleCard({super.key, 
-    required this.label,
+    // required this.label,
     required this.image,
     required this.selected,
     required this.onTap,
   });
 
-  final String label;
+  // final String label;
   final String image;
   final bool selected;
   final VoidCallback onTap;
