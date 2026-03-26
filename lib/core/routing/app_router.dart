@@ -10,7 +10,7 @@ import 'package:grade_project/feature/notification/ui/notification_screen.dart';
 import 'package:grade_project/feature/onpord/ui/onpord_screen.dart';
 import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/home_select/ui/home_select_screen.dart';
 import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/welcome_back_screen.dart';
-import 'package:grade_project/feature/quistions/ui/questions2ans_screen.dart';
+import 'package:grade_project/feature/quistions/ui/2ans/questions2ans_screen.dart';
 import 'package:grade_project/feature/repeted/ui/repeted_screen.dart';
 import 'package:grade_project/feature/report%20with%20date/report2_screen.dart';
 import 'package:grade_project/feature/report/ui/report_screen.dart';

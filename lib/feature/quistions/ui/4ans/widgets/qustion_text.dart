@@ -1,20 +1,20 @@
-// feature/quistions/ui/widgets/qustion_text.dart
-
+// feature/quistions/ui/4ans/widgets/qustion_text.dart
 
 import 'package:flutter/material.dart';
-import 'package:grade_project/feature/quistions/ui/questions2ans_screen.dart';
 import 'package:sizer/sizer.dart';
 
+class QustionText4ans extends StatelessWidget {
+  const QustionText4ans({
+    super.key,
+    required this.question,
+  });
 
-class QustionText extends StatelessWidget {
-  const QustionText({super.key, required this.widget});
-
-  final QuestionsScreen2ans widget;
+  final String question;
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      widget.question,
+      question,
       style: TextStyle(
         fontSize: 21.sp,
         fontWeight: FontWeight.w700,

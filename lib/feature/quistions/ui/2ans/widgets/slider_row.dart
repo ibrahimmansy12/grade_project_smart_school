@@ -1,7 +1,7 @@
-// feature/quistions/ui/widgets/slider_row.dart
+// feature/quistions/ui/2ans/widgets/slider_row.dart
 
 import 'package:flutter/material.dart';
-import 'package:grade_project/feature/quistions/ui/questions2ans_screen.dart';
+import 'package:grade_project/feature/quistions/ui/2ans/widgets/questions2ans_screen.dart';
 import 'package:sizer/sizer.dart';
 
 class SliderRow extends StatelessWidget {

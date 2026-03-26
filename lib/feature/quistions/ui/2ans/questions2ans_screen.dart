@@ -1,10 +1,10 @@
-// feature/quistions/ui/questions2ans_screen.dart
+// feature/quistions/ui/2ans/questions2ans_screen.dart
 import 'package:flutter/material.dart';
 import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/widgets/data_private_container.dart';
-import 'package:grade_project/feature/quistions/ui/widgets/answer_button.dart';
-import 'package:grade_project/feature/quistions/ui/widgets/qustion_button.dart';
-import 'package:grade_project/feature/quistions/ui/widgets/qustion_text.dart';
-import 'package:grade_project/feature/quistions/ui/widgets/slider_row.dart';
+import 'package:grade_project/feature/quistions/ui/2ans/widgets/answer_button.dart';
+import 'package:grade_project/feature/quistions/ui/2ans/widgets/qustion_button.dart';
+import 'package:grade_project/feature/quistions/ui/2ans/widgets/qustion_text.dart';
+import 'package:grade_project/feature/quistions/ui/2ans/widgets/slider_row.dart';
 import 'package:sizer/sizer.dart';
 
 class QuestionsScreen2ans extends StatefulWidget {
