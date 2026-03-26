@@ -2,17 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grade_project/core/helper/bloc_observer.dart';
-import 'package:grade_project/core/helper/constance_helper.dart';
-import 'package:grade_project/core/helper/extention.dart';
-import 'package:grade_project/core/helper/shared_prefrance_helper.dart';
-import 'package:grade_project/feature/image%20procesing/imagequbit_cubit.dart';
-import 'package:grade_project/feature/image%20reports/ui/image_reports_screen.dart';
-import 'package:grade_project/feature/login/ui/login_screen.dart';
-import 'package:grade_project/feature/notification/ui/notification_screen.dart';
-import 'package:grade_project/feature/onpord/ui/onpord_screen.dart';
-import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/home_select/ui/home_select_screen.dart';
-import 'package:grade_project/feature/quistions/ui/questions2ans_screen.dart';
-import 'package:sizer/sizer.dart';
+import 'package:grade_project/core/routing/app_router.dart';
+import 'package:grade_project/grade.dart';
 
 void main() async {
   // تهيئة Flutter قبل أي عملية async
@@ -20,41 +11,5 @@ void main() async {
 
   Bloc.observer = AddBlocObserver();
   await checkedLogedIn();
-  runApp(const GradeProject());
-}
-
-class GradeProject extends StatelessWidget {
-  const GradeProject({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Sizer(
-      builder: (context, orientation, deviceType) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: MultiBlocProvider(
-            providers: [
-              BlocProvider(create: (context) => ImagequbitCubit()),
-              //  BlocProvider(create: (context) => ImagequbitCubit()()),
-            ],
-            child:QuestionsScreen2ans()// isLogedInUser == true ? ImageIn() : LoginScreen(),
-          ),
-        );
-      },
-    );
-  }
-}
-
-Future<void> checkedLogedIn() async {
-  String userToken = await SharedPrefHelper.getSecuredString(
-    SharedPrefranceKeys.userToken,
-  );
-  if (!userToken.isNullOrEmpty()) {
-    isLogedInUser = true;
-    print(
-      "==============user token is $userToken ======is login is {$isLogedInUser}",
-    );
-  } else {
-    isLogedInUser = false;
-  }
+  runApp(GradeProject(approuting: IAppRouter()));
 }

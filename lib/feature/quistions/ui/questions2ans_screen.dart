@@ -1,6 +1,6 @@
 // feature/quistions/ui/questions2ans_screen.dart
 import 'package:flutter/material.dart';
-import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/welcome_back_screen.dart';
+import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/widgets/data_private_container.dart';
 import 'package:grade_project/feature/quistions/ui/widgets/answer_button.dart';
 import 'package:grade_project/feature/quistions/ui/widgets/qustion_button.dart';
 import 'package:grade_project/feature/quistions/ui/widgets/qustion_text.dart';

@@ -1,13 +1,12 @@
 // feature/image reports/ui/widgets/howtohelp_row.dart
 
 import 'package:flutter/material.dart';
-import 'package:grade_project/feature/thank%20you/thank%20you_screen.dart';
+import 'package:grade_project/core/helper/extention.dart';
+import 'package:grade_project/core/routing/routs.dart';
 import 'package:sizer/sizer.dart';
 
 class HowToHelpRow extends StatelessWidget {
-  const HowToHelpRow({
-    super.key,
-  });
+  const HowToHelpRow({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +15,7 @@ class HowToHelpRow extends StatelessWidget {
         const Spacer(),
         InkWell(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ThankYouScreen(),
-              ),
-            );
+            context.pushNamed(ERouts.thankYouScreen);
           },
           child: Container(
             width: 31.w,

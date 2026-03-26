@@ -2,13 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grade_project/feature/sellect%20roll/ui/select_role_screen.dart';
+import 'package:grade_project/core/helper/extention.dart';
+import 'package:grade_project/core/routing/routs.dart';
 import 'package:sizer/sizer.dart';
 
 class GetStartButton extends StatelessWidget {
-  const GetStartButton({
-    super.key,
-  });
+  const GetStartButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +16,7 @@ class GetStartButton extends StatelessWidget {
         width: 80.w,
         child: ElevatedButton(
           onPressed: () {
-            Navigator.of(context).pushReplacement(
-              MaterialPageRoute(
-                builder: (context) => const SelectRoleScreen(),
-              ),
-            );
+            context.pushReplacementNamed(ERouts.selectRoleScreen);
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF4E8EC0),
@@ -32,7 +27,7 @@ class GetStartButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(28.sp),
             ),
           ),
-    
+
           child: Text(
             'GET STARTED',
             style: GoogleFonts.poppins(

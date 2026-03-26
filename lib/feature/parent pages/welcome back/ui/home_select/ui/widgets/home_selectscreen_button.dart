@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:grade_project/core/helper/extention.dart';
+import 'package:grade_project/core/routing/routs.dart';
 import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/home_select/ui/home_select_screen.dart';
-import 'package:grade_project/feature/quistions/ui/questions2ans_screen.dart';
-import 'package:grade_project/feature/repeted/ui/repeted_screen.dart';
 import 'package:sizer/sizer.dart';
 
 class HomeSelectScreenButton extends StatelessWidget {
@@ -26,17 +26,9 @@ class HomeSelectScreenButton extends StatelessWidget {
             ? null
             : (widget.onNext ??
                   () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => QuestionsScreen2ans(
-                          onNextTap: () =>
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (_) => RepetedScreen(),
-                                ),
-                              ),
-                        ),
-                      ),
+                    context.pushNamed(
+                      ERouts.questionsScreen,
+                      arguments: () => context.pushNamed(ERouts.repeteScreen),
                     );
                   }),
         style: ElevatedButton.styleFrom(

@@ -1,10 +1,11 @@
 // feature/image procesing/image_in.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:grade_project/core/helper/extention.dart';
 import 'package:grade_project/core/helper/spacing.dart';
+import 'package:grade_project/core/routing/routs.dart';
 import 'package:grade_project/core/widgets/app_text_button.dart';
 import 'package:grade_project/core/widgets/app_text_form_field.dart';
-import 'package:grade_project/feature/image%20procesing/image_out.dart';
 import 'package:grade_project/feature/image%20procesing/imagequbit_cubit.dart';
 import 'package:sizer/sizer.dart';
 
@@ -79,10 +80,9 @@ class _ImageInState extends State<ImageIn> {
                             resp.isSuccess &&
                             resp.result != null) {
                           if (context.mounted) {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (_) => ImageOut(result: resp.result!),
-                              ),
+                            context.pushNamed(
+                              ERouts.imageOutScreen,
+                              arguments: resp.result,
                             );
                           }
                         } else {

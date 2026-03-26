@@ -1,8 +1,8 @@
 // feature/image procesing/image_out.dart
 import 'package:flutter/material.dart';
+import 'package:grade_project/core/helper/extention.dart';
+import 'package:grade_project/core/routing/routs.dart';
 import 'package:grade_project/feature/image%20procesing/image_analysis_model.dart';
-import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/welcome_back_screen.dart';
-import 'package:grade_project/feature/welcome%20back/ui/welcome_back.dart';
 import 'package:sizer/sizer.dart';
 
 class ImageOut extends StatelessWidget {
@@ -39,9 +39,7 @@ class ImageOut extends StatelessWidget {
 
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => const WelcomeBackScreen()),
-        ),
+        onPressed: () => context.pushNamed(ERouts.parentWelcomeBackScreen),
         child: Icon(Icons.keyboard_double_arrow_right_outlined, size: 20.sp),
       ),
       appBar: AppBar(title: const Text('Image Out'), leading: Container()),

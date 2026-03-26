@@ -1,6 +1,7 @@
 // feature/welcome back/ui/welcome back2/welcome_back2.dart
 import 'package:flutter/material.dart';
-import 'package:grade_project/feature/welcome%20back/ui/welcome%20back2/welcom3/welcome3_screen.dart';
+import 'package:grade_project/core/helper/extention.dart';
+import 'package:grade_project/core/routing/routs.dart';
 import 'package:sizer/sizer.dart';
 
 class WelcomeBack2Page extends StatefulWidget {
@@ -12,8 +13,6 @@ class WelcomeBack2Page extends StatefulWidget {
 
 class _WelcomeBack2PageState extends State<WelcomeBack2Page> {
   int _selected = 0;
-  final int _step = 3;
-  final int _total = 10;
 
   final List<Map<String, dynamic>> _opts = [
     {'label': 'Rarely', 'icon': Icons.sentiment_very_satisfied},
@@ -25,13 +24,9 @@ class _WelcomeBack2PageState extends State<WelcomeBack2Page> {
 
   @override
   Widget build(BuildContext context) {
-    final progress = _step / _total;
-
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => const Welcome3Screen()),
-        ),
+        onPressed: () => context.pushNamed(ERouts.welcome3Screen),
         child: Icon(Icons.keyboard_double_arrow_right_outlined, size: 20.sp),
       ),
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
@@ -257,12 +252,7 @@ class _WelcomeBack2PageState extends State<WelcomeBack2Page> {
                     ),
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Welcome3Screen(),
-                          ),
-                        );
+                        context.pushNamed(ERouts.welcome3Screen);
                       },
                       child: Ink(
                         decoration: BoxDecoration(
