@@ -13,7 +13,8 @@ class QuestionsScreen4ans extends StatefulWidget {
     super.key,
     this.currentStep = 1,
     this.totalSteps = 17,
-    this.question = 'How often have you been bullied in school in the past six months?',
+    this.question =
+        'How often have you been bullied in school in the past six months?',
     this.options = const [
       'Not at all ( Zero )',
       'Less than once a week',

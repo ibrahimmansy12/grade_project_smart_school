@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class QustionButton4ans extends StatelessWidget {
-  const QustionButton4ans({
-    super.key,
-    required this.onNextTap,
-  });
+  const QustionButton4ans({super.key, required this.onNextTap});
 
   final VoidCallback? onNextTap;
 

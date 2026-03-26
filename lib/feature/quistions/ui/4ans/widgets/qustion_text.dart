@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class QustionText4ans extends StatelessWidget {
-  const QustionText4ans({
-    super.key,
-    required this.question,
-  });
+  const QustionText4ans({super.key, required this.question});
 
   final String question;
 

@@ -26,11 +26,7 @@ class PrivacyCard4ans extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(
-            Icons.check_circle,
-            color: const Color(0xFF2F6A9B),
-            size: 24.sp,
-          ),
+          Icon(Icons.check_circle, color: const Color(0xFF2F6A9B), size: 24.sp),
           SizedBox(width: 3.w),
           Expanded(
             child: Text(
@@ -42,11 +38,7 @@ class PrivacyCard4ans extends StatelessWidget {
               ),
             ),
           ),
-          Icon(
-            Icons.shield,
-            color: const Color(0xFFB0B0B0),
-            size: 24.sp,
-          ),
+          Icon(Icons.shield, color: const Color(0xFFB0B0B0), size: 24.sp),
         ],
       ),
     );
