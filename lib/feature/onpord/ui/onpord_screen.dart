@@ -1,11 +1,9 @@
 // feature/onpord/ui/onpord_screen.dart
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_project/core/helper/spacing.dart';
 import 'package:grade_project/feature/onpord/ui/widgets/eschool_text.dart';
 import 'package:grade_project/feature/onpord/ui/widgets/get_start_button.dart';
 import 'package:grade_project/feature/onpord/ui/widgets/upper_contaioner.dart';
-import 'package:grade_project/feature/sellect%20roll/ui/select_role_screen.dart';
 import 'package:sizer/sizer.dart';
 
 class OnpordScreen extends StatelessWidget {

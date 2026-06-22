@@ -26,7 +26,7 @@ class AnswerButton4ans extends StatelessWidget {
         margin: EdgeInsets.symmetric(vertical: 0.8.h),
         decoration: BoxDecoration(
           color: isSelected ? const Color(0xFFE7F0F8) : const Color(0xFFF8F8F8),
-          borderRadius: BorderRadius.circular(15.sp),
+          borderRadius: BorderRadius.circular(22.sp),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.15),
@@ -44,7 +44,7 @@ class AnswerButton4ans extends StatelessWidget {
           textAlign: TextAlign.center,
           style: TextStyle(
             color: const Color(0xFF2F6A9B),
-            fontSize: 15.sp,
+            fontSize: 20.sp,
             fontWeight: FontWeight.w700,
           ),
         ),

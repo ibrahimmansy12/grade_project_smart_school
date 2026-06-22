@@ -18,3 +18,17 @@ class QuestionsFailure extends QuestionsState {
 
   QuestionsFailure(this.message);
 }
+
+class QuestionsSubmitLoading extends QuestionsState {}
+
+class QuestionsSubmitSuccess extends QuestionsState {
+  final String message;
+
+  QuestionsSubmitSuccess(this.message);
+}
+
+class QuestionsSubmitFailure extends QuestionsState {
+  final String message;
+
+  QuestionsSubmitFailure(this.message);
+}

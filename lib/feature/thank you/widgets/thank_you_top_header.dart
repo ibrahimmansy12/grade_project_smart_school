@@ -25,47 +25,43 @@ class ThankYouTopHeader extends StatelessWidget {
             ),
           ),
         ),
-        Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(left: 4.w, top: 3.h),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: GestureDetector(
-                  onTap: () => Navigator.of(context).maybePop(),
-                  child: Icon(
-                    Icons.arrow_back_rounded,
-                    color: const Color(0xFF4A4A4A),
-                    size: 30.sp,
-                  ),
+        Padding(
+          padding: EdgeInsets.only(left: 4.w, top: 3.h),
+          child: Align(
+            alignment: Alignment.topLeft,
+            child: GestureDetector(
+              onTap: () => Navigator.of(context).maybePop(),
+              child: Icon(
+                Icons.arrow_back_rounded,
+                color: const Color(0xFF4A4A4A),
+                size: 30.sp,
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          top: 7.h,
+          left: 0,
+          right: 0,
+          child: Column(
+            children: [
+              SizedBox(height: 0.7.h),
+              Text(
+                'Thank you!',
+                style: TextStyle(
+                  fontSize: 23.sp,
+                  fontWeight: FontWeight.w700,
+                  color: const Color(0xFF183048),
                 ),
               ),
-            ),
-            Positioned(
-              top: 7.h,
-              left: 0,
-              right: 0,
-              child: Column(
-                children: [
-                  SizedBox(height: 0.7.h),
-                  Text(
-                    'Thank you!',
-                    style: TextStyle(
-                      fontSize: 23.sp,
-                      fontWeight: FontWeight.w700,
-                      color: const Color(0xFF183048),
-                    ),
-                  ),
-                  SizedBox(height: 1.4.h),
-                  Image.asset(
-                    'assets/onpord_home_new.png',
-                    height: 27.h,
-                    fit: BoxFit.contain,
-                  ),
-                ],
+              SizedBox(height: 1.4.h),
+              Image.asset(
+                'assets/onpord_home_new.png',
+                height: 27.h,
+                fit: BoxFit.contain,
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );

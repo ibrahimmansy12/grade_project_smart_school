@@ -1,14 +1,11 @@
 // feature/quistions/ui/2ans/widgets/qustion_button.dart
 
 import 'package:flutter/material.dart';
-import 'package:grade_project/feature/quistions/ui/2ans/widgets/questions2ans_screen.dart';
+import 'package:grade_project/feature/quistions/ui/2ans/questions2ans_screen.dart';
 import 'package:sizer/sizer.dart';
 
 class QustionButton extends StatelessWidget {
-  const QustionButton({
-    super.key,
-    required this.widget,
-  });
+  const QustionButton({super.key, required this.widget});
 
   final QuestionsScreen2ans widget;
 
@@ -34,7 +31,7 @@ class QustionButton extends StatelessWidget {
             ],
           ),
           child: Text(
-            'NEXT',
+            widget.isLastStep ? 'SUBMIT' : 'NEXT',
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white,

@@ -4,18 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_project/core/helper/extention.dart';
 import 'package:grade_project/core/routing/routs.dart';
-import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/home_select/ui/home_select_screen.dart';
 import 'package:sizer/sizer.dart';
 
 class HomeSelectScreenButton extends StatelessWidget {
-  const HomeSelectScreenButton({
-    super.key,
-    required this.selectedRole,
-    required this.widget,
-  });
+  const HomeSelectScreenButton({super.key, required this.selectedRole});
 
   final String? selectedRole;
-  final HomeSelectScreen widget;
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +18,19 @@ class HomeSelectScreenButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: selectedRole == null
             ? null
-            : (widget.onNext ??
-                  () {
-                    context.pushNamed(
-                      ERouts.questionsScreen,
-                      arguments: () => context.pushNamed(ERouts.repeteScreen),
-                    );
-                  }),
+            : () {
+                if (selectedRole == 'overview') {
+                  context.pushNamed(IRouts.riskScreen);
+                  return;
+                }
+                if (selectedRole == 'reports') {
+                  context.pushNamed(IRouts.report2Screen);
+                  return;
+                }
+                if (selectedRole == 'settings') {
+                  context.pushNamed(IRouts.settingScreen);
+                }
+              },
         style: ElevatedButton.styleFrom(
           disabledBackgroundColor: const Color(0xFF75ADD7),
           backgroundColor: const Color(0xFF3F83B8),

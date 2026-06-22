@@ -16,7 +16,7 @@ class GetStartButton extends StatelessWidget {
         width: 80.w,
         child: ElevatedButton(
           onPressed: () {
-            context.pushReplacementNamed(ERouts.selectRoleScreen);
+            context.pushReplacementNamed(IRouts.selectRoleScreen);
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF4E8EC0),

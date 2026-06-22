@@ -1,4 +1,4 @@
-// feature/login/model/login_model.dart
+// feature/login/data/model/login_response_model.dart
 class LoginResponse {
   LoginResponse({
     required this.statusCode,
@@ -28,28 +28,41 @@ class LoginResponse {
   }
 
   Map<String, dynamic> toJson() => {
-        'statusCode': statusCode,
-        'isSuccess': isSuccess,
-        'errorMessages': errorMessages,
-        'result': result?.toJson(),
-      };
+    'statusCode': statusCode,
+    'isSuccess': isSuccess,
+    'errorMessages': errorMessages,
+    'result': result?.toJson(),
+  };
 }
 
 class LoginResult {
-  LoginResult({required this.message, required this.token});
+  LoginResult({
+    required this.message,
+    required this.token,
+    required this.role,
+    required this.userId,
+  });
 
   final String message;
   final String token;
+  final String role;
+  final int userId;
 
   factory LoginResult.fromJson(Map<String, dynamic> json) {
     return LoginResult(
       message: json['message']?.toString() ?? '',
       token: json['token']?.toString() ?? '',
+      role: json['role']?.toString() ?? '',
+      userId: json['userId'] is int
+          ? json['userId'] as int
+          : int.tryParse(json['userId']?.toString() ?? '') ?? 0,
     );
   }
 
   Map<String, dynamic> toJson() => {
-        'message': message,
-        'token': token,
-      };
+    'message': message,
+    'token': token,
+    'role': role,
+    'userId': userId,
+  };
 }

@@ -9,22 +9,23 @@ import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/widgets/s
 import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/widgets/welcome_back_row.dart';
 import 'package:sizer/sizer.dart';
 
-class WelcomeBackScreen extends StatelessWidget {
-  const WelcomeBackScreen({
+class ParentWelcomeBackScreen extends StatelessWidget {
+  const ParentWelcomeBackScreen({
     super.key,
-    this.onSettingsTap,
     this.onStartSurveyTap,
     this.onSupportTap,
     this.onContactTap,
   });
 
-  final VoidCallback? onSettingsTap;
   final VoidCallback? onStartSurveyTap;
   final VoidCallback? onSupportTap;
   final VoidCallback? onContactTap;
 
   @override
   Widget build(BuildContext context) {
+    onSettingsTap() {
+      context.pushNamed(IRouts.settingScreen);
+    }
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
       body: SafeArea(
@@ -49,8 +50,10 @@ class WelcomeBackScreen extends StatelessWidget {
                   WelcomeBackRow(onSettingsTap: onSettingsTap),
                   SizedBox(height: 23.h),
                   StartServayContainer(
-                    onStartSurveyTap: () =>
-                        context.pushNamed(ERouts.homeSelectScreen),
+                    onStartSurveyTap: () => context.pushNamed(
+                      IRouts.questionsScreen,
+                      arguments: () => context.pushNamed(IRouts.repeteScreen),
+                    ),
                   ),
                   SizedBox(height: 8.5.h),
                   SupportContainer(

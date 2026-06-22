@@ -30,7 +30,7 @@ class RiskHeader extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            context.pushNamed(ERouts.report2Screen);
+            context.pushNamed(IRouts.report2Screen);
           },
           child: Icon(Icons.notifications, size: 26.sp, color: Colors.black54),
         ),

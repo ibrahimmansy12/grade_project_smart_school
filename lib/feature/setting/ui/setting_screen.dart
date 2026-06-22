@@ -1,6 +1,8 @@
 // feature/setting/ui/setting_screen.dart
 import 'package:flutter/material.dart';
+import 'package:grade_project/core/helper/constance_helper.dart';
 import 'package:grade_project/core/helper/extention.dart';
+import 'package:grade_project/core/helper/shared_prefrance_helper.dart';
 import 'package:grade_project/core/routing/routs.dart';
 import 'package:grade_project/feature/setting/ui/widgets/consent_card.dart';
 import 'package:grade_project/feature/setting/ui/widgets/logout_button.dart';
@@ -25,7 +27,7 @@ class _SettingScreenState extends State<SettingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.pushNamed(ERouts.welcomeBackPage),
+        onPressed: () => context.pushNamed(IRouts.welcomeBackPage),
         child: Icon(Icons.keyboard_double_arrow_right_outlined, size: 20.sp),
       ),
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
@@ -62,7 +64,16 @@ class _SettingScreenState extends State<SettingScreen> {
 
                 SizedBox(height: 15.h),
 
-                LogoutButton(onPressed: () {}),
+                LogoutButton(
+                  onPressed: () {
+                    SharedPrefHelper.clearAllSecuredData();
+                    print("Cleared all secured data token ???? ${SharedPrefHelper.getSecuredString(SharedPrefranceKeys.userToken).toString()}");
+                    context.pushNamedAndRemoveUntil(
+                      IRouts.onpordingScreen,
+                      predicate: (route) => false,
+                    );
+                  },
+                ),
 
                 SizedBox(height: 3.h),
               ],

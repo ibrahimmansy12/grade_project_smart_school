@@ -39,7 +39,7 @@ class ImageOut extends StatelessWidget {
 
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.pushNamed(ERouts.parentWelcomeBackScreen),
+        onPressed: () => context.pushNamed(IRouts.parentWelcomeBackScreen),
         child: Icon(Icons.keyboard_double_arrow_right_outlined, size: 20.sp),
       ),
       appBar: AppBar(title: const Text('Image Out'), leading: Container()),

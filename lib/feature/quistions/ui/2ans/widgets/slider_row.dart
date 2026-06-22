@@ -1,7 +1,7 @@
 // feature/quistions/ui/2ans/widgets/slider_row.dart
 
 import 'package:flutter/material.dart';
-import 'package:grade_project/feature/quistions/ui/2ans/widgets/questions2ans_screen.dart';
+import 'package:grade_project/feature/quistions/ui/2ans/questions2ans_screen.dart';
 import 'package:sizer/sizer.dart';
 
 class SliderRow extends StatelessWidget {
@@ -19,7 +19,7 @@ class SliderRow extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(100),
             child: Container(
-              height: 0.95.h,
+              height: 1.7.h,
               color: const Color(0xFFD0D0D0),
               child: Align(
                 alignment: Alignment.centerLeft,
@@ -40,7 +40,7 @@ class SliderRow extends StatelessWidget {
         Text(
           '${widget.currentStep} of ${widget.totalSteps}',
           style: TextStyle(
-            fontSize: 11.5.sp,
+            fontSize: 17.sp,
             fontWeight: FontWeight.w700,
             color: const Color(0xFF23252B),
           ),
@@ -49,4 +49,3 @@ class SliderRow extends StatelessWidget {
     );
   }
 }
-

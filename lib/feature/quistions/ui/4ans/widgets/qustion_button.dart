@@ -4,9 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class QustionButton4ans extends StatelessWidget {
-  const QustionButton4ans({super.key, required this.onNextTap});
+  const QustionButton4ans({
+    super.key,
+    required this.onNextTap,
+    required this.isLastStep,
+  });
 
   final VoidCallback? onNextTap;
+  final bool isLastStep;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +35,7 @@ class QustionButton4ans extends StatelessWidget {
             ],
           ),
           child: Text(
-            'NEXT',
+            isLastStep ? 'SUBMIT' : 'NEXT',
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white,

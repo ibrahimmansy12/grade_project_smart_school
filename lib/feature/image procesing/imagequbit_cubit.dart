@@ -33,7 +33,7 @@ class ImagequbitCubit extends Cubit<ImagequbitState> {
 
       var dio = Dio();
       final response = await dio.request(
-        'http://pixel-vision.runasp.net/api/images/analyze',
+        '$baseUrl/images/analyze',
         options: Options(method: 'POST', headers: headers),
         data: data,
       );

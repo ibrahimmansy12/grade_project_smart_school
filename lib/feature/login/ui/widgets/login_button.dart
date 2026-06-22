@@ -1,21 +1,23 @@
 // feature/login/ui/widgets/login_button.dart
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:grade_project/feature/login/logic/login_cubit.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:grade_project/feature/login/logic/login_cubit.dart';
 import 'package:sizer/sizer.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({
+    required this.onPressed,
     super.key,
-    required TextEditingController emailController,
-    required TextEditingController passwordController,
-  }) : _emailController = emailController,
-       _passwordController = passwordController;
+    // required TextEditingController emailController,
+    // required TextEditingController passwordController,
+  });
+  // : _emailController = emailController,
+  //      _passwordController = passwordController;
 
-  final TextEditingController _emailController;
-  final TextEditingController _passwordController;
-
+  // final TextEditingController _emailController;
+  // final TextEditingController _passwordController;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,15 +37,16 @@ class LoginButton extends StatelessWidget {
         ],
       ),
       child: ElevatedButton(
-        onPressed: () {
-          final userName = _emailController.text.trim();
-          final password = _passwordController.text.trim();
+        onPressed:onPressed,
+        //  () {
+        //   final userName = _emailController.text.trim();
+        //   final password = _passwordController.text.trim();
 
-          context.read<LoginCubit>().login(
-            userName: userName,
-            password: password,
-          );
-        },
+        //   context.read<LoginCubit>().login(
+        //     userName: userName,
+        //     password: password,
+        //   );
+        // },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,

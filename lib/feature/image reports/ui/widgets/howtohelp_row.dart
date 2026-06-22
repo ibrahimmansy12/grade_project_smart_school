@@ -15,7 +15,7 @@ class HowToHelpRow extends StatelessWidget {
         const Spacer(),
         InkWell(
           onTap: () {
-            context.pushNamed(ERouts.thankYouScreen);
+            context.pushNamed(IRouts.thankYouScreen);
           },
           child: Container(
             width: 31.w,

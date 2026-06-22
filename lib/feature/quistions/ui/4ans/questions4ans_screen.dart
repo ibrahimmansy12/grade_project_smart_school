@@ -1,8 +1,8 @@
 // feature/quistions/ui/4ans/questions4ans_screen.dart
 
 import 'package:flutter/material.dart';
+import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/widgets/data_private_container.dart';
 import 'package:grade_project/feature/quistions/ui/4ans/widgets/answer_button.dart';
-import 'package:grade_project/feature/quistions/ui/4ans/widgets/privacy_card.dart';
 import 'package:grade_project/feature/quistions/ui/4ans/widgets/qustion_button.dart';
 import 'package:grade_project/feature/quistions/ui/4ans/widgets/qustion_text.dart';
 import 'package:grade_project/feature/quistions/ui/4ans/widgets/slider_row.dart';
@@ -23,6 +23,7 @@ class QuestionsScreen4ans extends StatefulWidget {
     ],
     this.onNextTap,
     this.onAnswerChanged,
+    this.isLastStep = false,
   });
 
   final int currentStep;
@@ -31,6 +32,7 @@ class QuestionsScreen4ans extends StatefulWidget {
   final List<String> options;
   final VoidCallback? onNextTap;
   final ValueChanged<String>? onAnswerChanged;
+  final bool isLastStep;
 
   @override
   State<QuestionsScreen4ans> createState() => _QuestionsScreen4ansState();
@@ -74,7 +76,7 @@ class _QuestionsScreen4ansState extends State<QuestionsScreen4ans> {
                   Text(
                     'Q) ${widget.currentStep}',
                     style: TextStyle(
-                      fontSize: 15.sp,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
                       color: const Color(0xFF23252B),
                     ),
@@ -90,8 +92,11 @@ class _QuestionsScreen4ansState extends State<QuestionsScreen4ans> {
                       onTap: () => _selectAnswer(widget.options[index]),
                     ),
                   ),
-                  SizedBox(height: 15.h),
-                  QustionButton4ans(onNextTap: widget.onNextTap),
+                  SizedBox(height: 4.h),
+                  QustionButton4ans(
+                    onNextTap: widget.onNextTap,
+                    isLastStep: widget.isLastStep,
+                  ),
                 ],
               ),
             ),
@@ -99,7 +104,7 @@ class _QuestionsScreen4ansState extends State<QuestionsScreen4ans> {
               left: 1.h,
               right: 1.h,
               bottom: 0,
-              child: PrivacyCard4ans(),
+              child: DataPrivateContainer(),
             ),
           ],
         ),

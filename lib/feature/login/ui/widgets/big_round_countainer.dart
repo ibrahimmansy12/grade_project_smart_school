@@ -8,15 +8,12 @@ class BigRoundContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned.fill(
-      top: -10.h,
-      bottom: 45.h,
-      right: -2.h,
-      left: -2.h,
-      //  alignment: Alignment.topCenter,
+    return Positioned(
+      left: 0,
+      right: 0,
+      top: 0,
       child: Container(
         height: 38.h,
-        width: double.infinity,
         decoration: BoxDecoration(
           color: const Color(0xFFCFE1F4),
           borderRadius: BorderRadius.only(

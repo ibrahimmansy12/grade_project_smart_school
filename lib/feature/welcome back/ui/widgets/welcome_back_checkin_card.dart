@@ -23,7 +23,7 @@ class WelcomeBackCheckinCard extends StatelessWidget {
             shadowColor: Colors.black12,
           ),
           onPressed: () {
-            context.pushNamed(ERouts.welcomeBack2Page);
+            context.pushNamed(IRouts.welcomeBack2Page);
           },
           icon: Icon(Icons.check_circle, size: 20.sp, color: Colors.white),
           label: Text(

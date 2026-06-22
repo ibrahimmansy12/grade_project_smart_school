@@ -20,7 +20,7 @@ class RepeatedContactButton extends StatelessWidget {
         color: Colors.white,
       ),
       onpressed: () {
-        context.pushNamed(ERouts.reportScreen);
+        context.pushNamed(IRouts.reportScreen);
       },
       borderRadius: 12.w,
       backGroundColor: const Color(0xFF4B88C6),

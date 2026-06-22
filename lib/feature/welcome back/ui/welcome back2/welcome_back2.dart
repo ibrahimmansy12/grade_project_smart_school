@@ -26,7 +26,7 @@ class _WelcomeBack2PageState extends State<WelcomeBack2Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.pushNamed(ERouts.welcome3Screen),
+        onPressed: () => context.pushNamed(IRouts.welcome3Screen),
         child: Icon(Icons.keyboard_double_arrow_right_outlined, size: 20.sp),
       ),
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
@@ -252,7 +252,7 @@ class _WelcomeBack2PageState extends State<WelcomeBack2Page> {
                     ),
                     child: GestureDetector(
                       onTap: () {
-                        context.pushNamed(ERouts.welcome3Screen);
+                        context.pushNamed(IRouts.welcome3Screen);
                       },
                       child: Ink(
                         decoration: BoxDecoration(

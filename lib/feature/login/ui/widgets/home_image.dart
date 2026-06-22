@@ -8,8 +8,8 @@ class HomeImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned.fill(
-      top: -40.h,
+    return Positioned(
+      top: 2.5.h,
       left: 0,
       right: 0,
       child: Center(

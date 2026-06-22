@@ -1,21 +1,20 @@
 // grade.dart
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grade_project/core/helper/constance_helper.dart';
 import 'package:grade_project/core/helper/extention.dart';
 import 'package:grade_project/core/helper/shared_prefrance_helper.dart';
 import 'package:grade_project/core/routing/app_router.dart';
 import 'package:grade_project/core/routing/routs.dart';
-import 'package:grade_project/feature/image%20procesing/imagequbit_cubit.dart';
-import 'package:grade_project/feature/thank%20you/thank%20you_screen.dart'
-    show ThankYouScreen;
+import 'package:grade_project/feature/sellect%20roll/logic/role_cubit.dart';
 import 'package:sizer/sizer.dart';
+
+String _loggedInInitialRoute = IRouts.onpordingScreen;
 
 class GradeProject extends StatelessWidget {
   final IAppRouter? approuting;
 
-  const GradeProject({super.key,  required this.approuting});
+  const GradeProject({super.key, required this.approuting});
 
   @override
   Widget build(BuildContext context) {
@@ -23,18 +22,10 @@ class GradeProject extends StatelessWidget {
       builder: (context, orientation, deviceType) {
         return MaterialApp(
           initialRoute: isLogedInUser
-              ? IRouts.riskScreen
+              ? _loggedInInitialRoute
               : IRouts.onpordingScreen,
           onGenerateRoute: approuting?.generateRouter,
           debugShowCheckedModeBanner: false,
-          home: MultiBlocProvider(
-            providers: [
-              BlocProvider(create: (context) => ImagequbitCubit()),
-              //  BlocProvider(create: (context) => ImagequbitCubit()()),
-            ],
-            child:
-                ThankYouScreen(), // isLogedInUser == true ? ImageIn() : LoginScreen(),
-          ),
         );
       },
     );
@@ -42,15 +33,25 @@ class GradeProject extends StatelessWidget {
 }
 
 Future<void> checkedLogedIn() async {
+  final roleCubit = RoleCubit();
+  await roleCubit.loadSavedRole();
+
   String userToken = await SharedPrefHelper.getSecuredString(
     SharedPrefranceKeys.userToken,
   );
   if (!userToken.isNullOrEmpty()) {
     isLogedInUser = true;
+    final savedRole = roleCubit.currentRole;
+    _loggedInInitialRoute = switch (savedRole) {
+      'parent' => IRouts.homeSelectScreen,
+      'student' => IRouts.parentWelcomeBackScreen,
+      _ => IRouts.onpordingScreen,
+    };
     print(
       "==============user token is $userToken ======is login is {$isLogedInUser}",
     );
   } else {
     isLogedInUser = false;
+    _loggedInInitialRoute = IRouts.onpordingScreen;
   }
 }

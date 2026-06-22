@@ -2,7 +2,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:grade_project/feature/quistions/ui/2ans/widgets/questions2ans_screen.dart';
+import 'package:grade_project/feature/quistions/ui/2ans/questions2ans_screen.dart';
 import 'package:sizer/sizer.dart';
 
 

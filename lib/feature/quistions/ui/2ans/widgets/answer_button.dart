@@ -1,10 +1,11 @@
-// feature/quistions/ui/widgets/answer_button.dart
+// feature/quistions/ui/2ans/widgets/answer_button.dart
 
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class AnswerButton extends StatelessWidget {
-  const AnswerButton({super.key, 
+  const AnswerButton({
+    super.key,
     required this.label,
     required this.isSelected,
     required this.onTap,
@@ -42,7 +43,7 @@ class AnswerButton extends StatelessWidget {
           textAlign: TextAlign.center,
           style: TextStyle(
             color: const Color(0xFF2F6A9B),
-            fontSize: 16.sp,
+            fontSize: 18.sp,
             fontWeight: FontWeight.w700,
           ),
         ),

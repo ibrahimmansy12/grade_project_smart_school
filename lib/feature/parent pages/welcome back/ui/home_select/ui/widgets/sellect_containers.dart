@@ -22,9 +22,9 @@ class SellectContainers extends StatelessWidget {
             padding: EdgeInsets.all(2.h),
             child: RoleCard(
               image: 'assets/home_selectscreen_overview.png',
-              selected: selectedRole == 'student',
+              selected: selectedRole == 'overview',
               onTap: () {
-                onRoleSelected('student');
+                onRoleSelected('overview');
               },
             ),
           ),
@@ -35,9 +35,9 @@ class SellectContainers extends StatelessWidget {
               children: [
                 RoleCard(
                   image: 'assets/home_selectscreen_report.png',
-                  selected: selectedRole == 'parent',
+                  selected: selectedRole == 'reports',
                   onTap: () {
-                    onRoleSelected('parent');
+                    onRoleSelected('reports');
                   },
                 ),
               ],
@@ -47,9 +47,9 @@ class SellectContainers extends StatelessWidget {
             padding: EdgeInsets.all(2.h),
             child: RoleCard(
               image: 'assets/home_selectscreen_settings.png',
-              selected: selectedRole == 'student',
+              selected: selectedRole == 'settings',
               onTap: () {
-                onRoleSelected('student');
+                onRoleSelected('settings');
               },
             ),
           ),
