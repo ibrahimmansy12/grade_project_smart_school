@@ -101,11 +101,11 @@ class _QuestionsFlowViewState extends State<_QuestionsFlowView> {
             predicate: (route) => false,
           );
         } else if (state is QuestionsSubmitFailure) {
-          print('Quiz submit failed:------ ${state.message}');
+          print('Quiz submit failed:------ ${state.errorModel}');
 
           ScaffoldMessenger.of(
             context,
-          ).showSnackBar(SnackBar(content: Text(state.message)));
+          ).showSnackBar(SnackBar(content: Text(state.errorModel.errorMessages?.join(', ')?? 'Failed to submit quiz')));
         }
       },
       builder: (context, state) {
@@ -123,7 +123,7 @@ class _QuestionsFlowViewState extends State<_QuestionsFlowView> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(state.message, textAlign: TextAlign.center),
+                    Text(state.errorModel.errorMessages?.join(', ') ?? 'An error occurred', textAlign: TextAlign.center),
                     const SizedBox(height: 12),
                     ElevatedButton(
                       onPressed: () {

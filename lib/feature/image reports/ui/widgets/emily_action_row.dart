@@ -3,13 +3,11 @@
 // feature/image reports/ui/widgets/emily_action_row.dart
 
 import 'package:flutter/material.dart';
-import 'package:grade_project/feature/image%20reports/ui/widgets/discription_column.dart';
-import 'package:grade_project/feature/image%20reports/ui/widgets/howtohelp_row.dart';
 import 'package:grade_project/feature/report%20with%20date/widgets/report2_alert_card.dart';
 import 'package:sizer/sizer.dart';
 
 class EmilyActionCard extends StatelessWidget {
-  const EmilyActionCard({Key? key, this.report}) : super(key: key);
+  const EmilyActionCard({super.key, this.report});
 
   final ReportCardModel? report;
 
@@ -64,51 +62,88 @@ class EmilyActionCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Status",
-                  style: TextStyle(
-                    color: const Color(0xFF191919),
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.w700,
-                  ),
+                ReportShowData(
+                  subject: "Total Images",
+                  data: report?.report.totalImages.toString() ?? "aproved",
                 ),
-                Text(
-                  report?.report.status ?? "aproved",
-                  style: TextStyle(
-                    color: const Color(0xFF7A7A7A),
-                    fontSize: 17.sp,
-                    height: 1.35,
-                    fontWeight: FontWeight.w600,
-                  ),
+                ReportShowData(
+                  subject: "Sleep Images Count",
+                  data: report?.report.sleepingCount.toString() ?? "0",
                 ),
-                SizedBox(height: 0.8.h),
-                Text(
-                  "What should to Do",
-                  style: TextStyle(
-                    color: const Color(0xFF191919),
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.w700,
-                  ),
+                ReportShowData(
+                  subject: "Looking Back Count",
+                  data: report?.report.lookingBackCount.toString() ?? "0",
                 ),
-                Text(
-                  report?.report.recomendation ?? "aproved",
-                  style: TextStyle(
-                    color: const Color(0xFF7A7A7A),
-                    fontSize: 17.sp,
-                    height: 1.35,
-                    fontWeight: FontWeight.w600,
-                  ),
+                ReportShowData(
+                  subject: "Hand Raised Count",
+                  data: report?.report.handRaisedCount.toString() ?? "0",
                 ),
-                DescriptionColumn(),
-                // SizedBox(height: 1.8.h),
-                //  DurationColumn(),
-                SizedBox(height: 2.h),
-                HowToHelpRow(),
+
+                ReportShowData(
+                  subject: "Writting Count",
+                  data: report?.report.writtingCount.toString() ?? "0",
+                ),
+                ReportShowData(
+                  subject: "Reading Count",
+                  data: report?.report.readingCount.toString() ?? "0",
+                ),
+                ReportShowData(
+                  subject: "Looking Forward Count",
+                  data: report?.report.lookingForwardCount.toString() ?? "0",
+                ),
+                ReportShowData(
+                  subject: "Status",
+                  data: report?.report.status ?? "aproved",
+                ),
+                ReportShowData(
+                  subject: "What should to Do",
+                  data: report?.report.recomendation ?? "aproved",
+                ),
+
+                // DescriptionColumn(),
+                // // SizedBox(height: 1.8.h),
+                // //  DurationColumn(),
+                // SizedBox(height: 2.h),
+                // HowToHelpRow(),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class ReportShowData extends StatelessWidget {
+  const ReportShowData({super.key, this.subject, this.data, this.report});
+  final String? subject;
+  final String? data;
+  final ReportCardModel? report;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          subject ?? "",
+          style: TextStyle(
+            color: const Color(0xFF191919),
+            fontSize: 18.sp,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        Text(
+          data ?? "aproved",
+          style: TextStyle(
+            color: const Color(0xFF7A7A7A),
+            fontSize: 17.sp,
+            height: 1.35,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        SizedBox(height: 0.8.h),
+      ],
     );
   }
 }

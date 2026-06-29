@@ -5,6 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:grade_project/core/helper/constance_helper.dart';
 import 'package:grade_project/core/helper/shared_prefrance_helper.dart';
+import 'package:grade_project/core/networking/error_model.dart';
 import 'package:grade_project/feature/report/data/weekly_reports_model.dart';
 
 part 'report_state.dart';
@@ -24,7 +25,7 @@ class ReportCubit extends Cubit<ReportState> {
     // print("user id: ******${SharedPrefHelper.getInt(SharedPrefranceKeys.userId)}");
   }
 
-  Future<WeeklyReportsModel> getReports() async {
+  Future getReports() async {
     try {
       emit(Reportloading());
       int? id = int.parse(await getuserid());
@@ -55,9 +56,19 @@ class ReportCubit extends Cubit<ReportState> {
       print(json.encode(response.data));
       return model;
     } catch (e) {
-      print("report error: ******$e");
-      emit(ReportFailure(errorMessage: e.toString()));
-      throw Exception('Failed to load reports: $e');
+      if (e is DioException) {
+        DioException? dioError;
+
+        emit(
+          ReportFailure(
+            errorModel: ErrorModel(
+              statusCode: dioError!.response?.data.statusCode,
+              isSuccess: false,
+              errorMessages: e.message.toString().split(" "),
+            ),
+          ),
+        );
+      }
     }
   }
 }/**

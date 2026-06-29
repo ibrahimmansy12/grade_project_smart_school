@@ -45,6 +45,7 @@ class Report2HeaderSection extends StatelessWidget {
           ),
         ),
         SizedBox(height: 2.h),
+
         // Container(
         //   padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
         //   decoration: BoxDecoration(
@@ -93,7 +94,6 @@ class Report2HeaderSection extends StatelessWidget {
         //     ],
         //   ),
         // ),
-     
       ],
     );
   }

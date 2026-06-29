@@ -1,11 +1,11 @@
-// feature/parent pages/welcome back/ui/home_select/ui/home_select_screen.dart
+// feature/student pages/welcome back/ui/home_select/ui/home_select_screen.dart
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 // feature/parent pages/welcome back/ui/home_select/ui/home_select_screen.dart
 import 'package:flutter/material.dart';
 import 'package:grade_project/core/helper/spacing.dart';
-import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/home_select/ui/widgets/home_selectscreen_button.dart';
-import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/home_select/ui/widgets/sellect_containers.dart';
-import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/home_select/ui/widgets/upper_page_strings.dart';
+import 'package:grade_project/feature/student%20pages/welcome%20back/ui/home_select/ui/widgets/home_selectscreen_button.dart';
+import 'package:grade_project/feature/student%20pages/welcome%20back/ui/home_select/ui/widgets/sellect_containers.dart';
+import 'package:grade_project/feature/student%20pages/welcome%20back/ui/home_select/ui/widgets/upper_page_strings.dart';
 import 'package:sizer/sizer.dart';
 
 class HomeSelectScreen extends StatefulWidget {

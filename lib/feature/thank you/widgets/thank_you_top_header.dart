@@ -1,5 +1,7 @@
 // feature/thank you/widgets/thank_you_top_header.dart
 import 'package:flutter/material.dart';
+import 'package:grade_project/core/helper/extention.dart';
+import 'package:grade_project/core/routing/routs.dart';
 import 'package:sizer/sizer.dart';
 
 class ThankYouTopHeader extends StatelessWidget {
@@ -30,7 +32,10 @@ class ThankYouTopHeader extends StatelessWidget {
           child: Align(
             alignment: Alignment.topLeft,
             child: GestureDetector(
-              onTap: () => Navigator.of(context).maybePop(),
+              onTap: () => context.pushNamedAndRemoveUntil(
+                IRouts.welcomeBackStudentScreen,
+                predicate: (_) => false,
+              ),
               child: Icon(
                 Icons.arrow_back_rounded,
                 color: const Color(0xFF4A4A4A),

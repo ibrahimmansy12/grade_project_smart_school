@@ -21,7 +21,7 @@ class ImageContainer extends StatelessWidget {
           height: 14.h,
           width: double.infinity,
           fit: BoxFit.cover,
-          errorBuilder: (_, __, ___) {
+          errorBuilder: (_, _, _) {
             return Container(
               height: 14.h,
               color: const Color(0xFFCFCFCF),

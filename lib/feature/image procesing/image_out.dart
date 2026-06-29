@@ -1,7 +1,5 @@
 // feature/image procesing/image_out.dart
 import 'package:flutter/material.dart';
-import 'package:grade_project/core/helper/extention.dart';
-import 'package:grade_project/core/routing/routs.dart';
 import 'package:grade_project/feature/image%20procesing/image_analysis_model.dart';
 import 'package:sizer/sizer.dart';
 
@@ -38,10 +36,10 @@ class ImageOut extends StatelessWidget {
         : null;
 
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => context.pushNamed(IRouts.parentWelcomeBackScreen),
-        child: Icon(Icons.keyboard_double_arrow_right_outlined, size: 20.sp),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () => context.pushNamed(IRouts.welcomeBackStudentScreen),
+      //   child: Icon(Icons.keyboard_double_arrow_right_outlined, size: 20.sp),
+      // ),
       appBar: AppBar(title: const Text('Image Out'), leading: Container()),
       body: Padding(
         padding: EdgeInsets.all(2.h),

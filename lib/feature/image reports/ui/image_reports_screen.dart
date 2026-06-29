@@ -31,7 +31,7 @@ class ImageReportsScreen extends StatelessWidget {
               ),
               // SizedBox(height: 3.h),
               // CheckDateRow(),
-              SizedBox(height: 4.h),
+              SizedBox(height: 2.h),
               Expanded(
                 child: ListView(
                   physics: const BouncingScrollPhysics(),

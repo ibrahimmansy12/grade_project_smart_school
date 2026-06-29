@@ -14,9 +14,9 @@ class QuestionsSuccess extends QuestionsState {
 }
 
 class QuestionsFailure extends QuestionsState {
-  final String message;
+  final ErrorModel errorModel;
 
-  QuestionsFailure(this.message);
+  QuestionsFailure(this.errorModel);
 }
 
 class QuestionsSubmitLoading extends QuestionsState {}
@@ -28,7 +28,7 @@ class QuestionsSubmitSuccess extends QuestionsState {
 }
 
 class QuestionsSubmitFailure extends QuestionsState {
-  final String message;
+  final ErrorModel errorModel;
 
-  QuestionsSubmitFailure(this.message);
+  QuestionsSubmitFailure(this.errorModel);
 }

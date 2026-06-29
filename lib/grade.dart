@@ -44,7 +44,7 @@ Future<void> checkedLogedIn() async {
     final savedRole = roleCubit.currentRole;
     _loggedInInitialRoute = switch (savedRole) {
       'parent' => IRouts.homeSelectScreen,
-      'student' => IRouts.parentWelcomeBackScreen,
+      'student' => IRouts.welcomeBackStudentScreen,
       _ => IRouts.onpordingScreen,
     };
     print(

@@ -1,6 +1,6 @@
 // feature/quistions/ui/2ans/questions2ans_screen.dart
 import 'package:flutter/material.dart';
-import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/widgets/data_private_container.dart';
+import 'package:grade_project/feature/student%20pages/welcome%20back/ui/widgets/data_private_container.dart';
 import 'package:grade_project/feature/quistions/ui/2ans/widgets/answer_button.dart';
 import 'package:grade_project/feature/quistions/ui/2ans/widgets/qustion_button.dart';
 import 'package:grade_project/feature/quistions/ui/2ans/widgets/qustion_text.dart';
@@ -71,7 +71,7 @@ class _QuestionsScreen2ansState extends State<QuestionsScreen2ans> {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           height: double.infinity,
           child: Stack(
             children: [

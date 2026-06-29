@@ -47,7 +47,7 @@ class DataPrivateContainer extends StatelessWidget {
                   ),
                 ),
               ),
-              Icon(Icons.shield, color: Colors.white, size: 31.sp),
+              Icon(Icons.verified_user, color: Colors.grey, size: 31.sp),
             ],
           ),
           SizedBox(height: 1.1.h),

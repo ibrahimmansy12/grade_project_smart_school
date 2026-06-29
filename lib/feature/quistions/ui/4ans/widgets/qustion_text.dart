@@ -11,6 +11,7 @@ class QustionText4ans extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
+
       question,
       style: TextStyle(
         fontSize: 21.sp,
@@ -21,3 +22,11 @@ class QustionText4ans extends StatelessWidget {
     );
   }
 }
+/** Text(
+                      'Q) ${widget.currentStep}',
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w600,
+                        color: const Color(0xFF23252B),
+                      ),
+                    ), */

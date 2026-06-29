@@ -1,8 +1,6 @@
 // feature/report/ui/report_screen.dart
 import 'package:flutter/material.dart';
-import 'package:grade_project/core/helper/extention.dart';
 import 'package:grade_project/core/helper/spacing.dart';
-import 'package:grade_project/core/routing/routs.dart';
 import 'package:grade_project/feature/report/ui/widgets/report_alert_item.dart';
 import 'package:grade_project/feature/report/ui/widgets/report_date_download.dart';
 import 'package:grade_project/feature/report/ui/widgets/report_grouped_chart.dart';
@@ -16,10 +14,10 @@ class ReportScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => context.pushNamed(IRouts.riskScreen),
-        child: Icon(Icons.keyboard_double_arrow_right_outlined, size: 20.sp),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () => context.pushNamed(IRouts.riskScreen),
+      //   child: Icon(Icons.keyboard_double_arrow_right_outlined, size: 20.sp),
+      // ),
       backgroundColor: const Color(0xFFF6F7FB),
       body: SafeArea(
         child: Padding(

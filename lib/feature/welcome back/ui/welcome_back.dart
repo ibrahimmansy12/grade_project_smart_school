@@ -1,6 +1,5 @@
 // feature/welcome back/ui/welcome_back.dart
 import 'package:flutter/material.dart';
-import 'package:grade_project/feature/welcome%20back/ui/welcome%20back2/welcome_back2.dart';
 import 'package:grade_project/feature/welcome%20back/ui/widgets/welcome_back_checkin_card.dart';
 import 'package:grade_project/feature/welcome%20back/ui/widgets/welcome_back_header.dart';
 import 'package:grade_project/feature/welcome%20back/ui/widgets/welcome_back_info_card.dart';
@@ -13,12 +12,12 @@ class WelcomeBackPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(
-          context,
-        ).push(MaterialPageRoute(builder: (_) => const WelcomeBack2Page())),
-        child: Icon(Icons.keyboard_double_arrow_right_outlined, size: 20.sp),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () => Navigator.of(
+      //     context,
+      //   ).push(MaterialPageRoute(builder: (_) => const WelcomeBack2Page())),
+      //   child: Icon(Icons.keyboard_double_arrow_right_outlined, size: 20.sp),
+      // ),
       backgroundColor: const Color(0xFFF6F7FB),
       body: SafeArea(
         child: Padding(

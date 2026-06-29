@@ -20,6 +20,7 @@ class _Report2ScreenState extends State<Report2Screen> {
     context.read<ReportCubit>().getReports();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       // floatingActionButton: FloatingActionButton(
@@ -40,19 +41,21 @@ class _Report2ScreenState extends State<Report2Screen> {
                 builder: (context, state) {
                   if (state is ReportFailure) {
                     return Text(
-                      state.errorMessage,
+                      state.errorModel.errorMessages?.join(",") ??
+                          'Unknown Error',
                       style: TextStyle(fontSize: 16.sp, color: Colors.red),
                     );
                   }
                   if (state is ReportSucess) {
                     final alerts = state.reportItems;
+                    print("report lenth :::::${alerts?.length}");
                     return Expanded(
                       child: ListView.separated(
                         physics: const BouncingScrollPhysics(),
-                        itemCount: 1,
-                        separatorBuilder: (_, __) => SizedBox(height: 2.h),
+                        itemCount: alerts!.length,
+                        separatorBuilder: (_, _) => SizedBox(height: 2.h),
                         itemBuilder: (context, index) =>
-                            Report2AlertCard(report: alerts!),
+                            Report2AlertCard(report: alerts[index]!),
                       ),
                     );
                   }

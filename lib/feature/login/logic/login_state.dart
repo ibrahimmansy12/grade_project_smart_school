@@ -24,7 +24,7 @@ class LoginSuccess extends LoginState {
 }
 
 class LoginFailure extends LoginState {
-  LoginFailure(this.message);
+  LoginFailure(this.errorModel);
 
-  final String message;
+  final ErrorModel errorModel;
 }

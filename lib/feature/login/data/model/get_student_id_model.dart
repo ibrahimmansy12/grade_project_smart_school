@@ -99,5 +99,5 @@ class ParentStudentResponse {
     return 'ParentStudentResponse(statusCode: $statusCode, isSuccess: $isSuccess, errorMessages: $errorMessages, result: $result)';
   }
 
-  operator [](String other) {}
+  // operator [](String other) {}
 }

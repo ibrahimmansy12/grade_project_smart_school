@@ -22,7 +22,7 @@ class AnswerButton4ans extends StatelessWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 180),
         width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 1.3.h),
+        padding: EdgeInsets.symmetric(vertical: 1.5.h, horizontal: 5.w),
         margin: EdgeInsets.symmetric(vertical: 0.8.h),
         decoration: BoxDecoration(
           color: isSelected ? const Color(0xFFE7F0F8) : const Color(0xFFF8F8F8),
@@ -44,7 +44,7 @@ class AnswerButton4ans extends StatelessWidget {
           textAlign: TextAlign.center,
           style: TextStyle(
             color: const Color(0xFF2F6A9B),
-            fontSize: 20.sp,
+            fontSize: 16.sp,
             fontWeight: FontWeight.w700,
           ),
         ),

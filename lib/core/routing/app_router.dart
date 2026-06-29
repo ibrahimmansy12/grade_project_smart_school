@@ -11,8 +11,8 @@ import 'package:grade_project/feature/login/logic/login_cubit.dart';
 import 'package:grade_project/feature/login/ui/login_screen.dart';
 import 'package:grade_project/feature/notification/ui/notification_screen.dart';
 import 'package:grade_project/feature/onpord/ui/onpord_screen.dart';
-import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/home_select/ui/home_select_screen.dart';
-import 'package:grade_project/feature/parent%20pages/welcome%20back/ui/welcome_back_screen.dart';
+import 'package:grade_project/feature/student%20pages/welcome%20back/ui/home_select/ui/home_select_screen.dart';
+import 'package:grade_project/feature/student%20pages/welcome%20back/ui/welcomeback_student_screen.dart';
 import 'package:grade_project/feature/quistions/logic/questions_cubit.dart';
 import 'package:grade_project/feature/quistions/ui/questions_flow_screen.dart';
 import 'package:grade_project/feature/register/logic/register_cubit.dart';
@@ -26,7 +26,7 @@ import 'package:grade_project/feature/risk/ui/risk_screen.dart';
 import 'package:grade_project/feature/sellect%20roll/logic/role_cubit.dart';
 import 'package:grade_project/feature/sellect%20roll/ui/select_role_screen.dart';
 import 'package:grade_project/feature/setting/ui/setting_screen.dart';
-import 'package:grade_project/feature/thank%20you/thank%20you_screen.dart';
+import 'package:grade_project/feature/thank%20you/thank_you_screen.dart';
 import 'package:grade_project/feature/welcome%20back/ui/welcome%20back2/welcom3/welcome3_screen.dart';
 import 'package:grade_project/feature/welcome%20back/ui/welcome%20back2/welcome_back2.dart';
 import 'package:grade_project/feature/welcome%20back/ui/welcome_back.dart';
@@ -105,9 +105,9 @@ class IAppRouter {
       case IRouts.welcome3Screen:
         return MaterialPageRoute(builder: (_) => const Welcome3Screen());
 
-      case IRouts.parentWelcomeBackScreen:
+      case IRouts.welcomeBackStudentScreen:
         return MaterialPageRoute(
-          builder: (_) => const ParentWelcomeBackScreen(),
+          builder: (_) => const WelcomeBackStudentScreen(),
         );
 
       case IRouts.repeteScreen:

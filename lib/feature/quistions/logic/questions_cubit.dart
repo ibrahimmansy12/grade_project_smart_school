@@ -3,6 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:grade_project/core/helper/constance_helper.dart';
 import 'package:grade_project/core/helper/shared_prefrance_helper.dart';
+import 'package:grade_project/core/networking/error_model.dart';
 import 'package:grade_project/feature/quistions/data/model/questions_test_model.dart';
 import 'package:grade_project/feature/quistions/data/model/qustion_model.dart';
 
@@ -45,7 +46,11 @@ class QuestionsCubit extends Cubit<QuestionsState> {
       if (raw is! Map<String, dynamic>) {
         const message = 'Unexpected response format';
         print('Error: $message');
-        emit(QuestionsFailure(message));
+        emit(QuestionsFailure(ErrorModel(
+          statusCode: response.statusCode ?? 0,
+          isSuccess: false,
+          errorMessages: [message],
+        )));
         return null;
       }
 
@@ -65,7 +70,11 @@ class QuestionsCubit extends Cubit<QuestionsState> {
             ? errors.join(', ')
             : 'Failed to load questions';
         print('API returned failure: $message');
-        emit(QuestionsFailure(message));
+        emit(QuestionsFailure(ErrorModel(
+          statusCode: response.statusCode ?? 0,
+          isSuccess: false,
+          errorMessages: [message],
+        )));
       }
 
       return model;
@@ -76,12 +85,20 @@ class QuestionsCubit extends Cubit<QuestionsState> {
           'Dio error: ${e.message}${status != null ? ' ($status)' : ''}${data != null ? ' - $data' : ''}';
       print('DioException: $message');
       print('Full error: $e');
-      emit(QuestionsFailure(message));
+      emit(QuestionsFailure(ErrorModel(
+        statusCode: 500,
+        isSuccess: false,
+        errorMessages: [message],
+      )));
       return null;
     } catch (e) {
       final message = e.toString();
       print('Unexpected error: $message');
-      emit(QuestionsFailure(message));
+      emit(QuestionsFailure(ErrorModel(
+        statusCode: 500,
+        isSuccess: false,
+        errorMessages: [message],
+      )));
       return null;
     }
   }
@@ -159,20 +176,30 @@ class QuestionsCubit extends Cubit<QuestionsState> {
         return true;
       }
 
-      final message = 'Failed to submit quiz';
-      emit(QuestionsSubmitFailure(message));
+      // final message = 'Failed to submit quiz';
+      emit(QuestionsSubmitFailure(ErrorModel(
+        statusCode: statusCode,
+        isSuccess: false,
+        errorMessages: ['Failed to submit quiz'],
+      )));
       return false;
     } on DioException catch (e) {
-      final status = e.response?.statusCode;
-      final data = e.response?.data;
-      final message =
-          'Dio error: ${e.message}${status != null ? ' ($status)' : ''}${data != null ? ' - $data' : ''}';
-      emit(QuestionsSubmitFailure(message));
+      // final status = e.response?.statusCode;
+      // final data = e.response?.data;
+      // final message =
+      //     'Dio error: ${e.message}${status != null ? ' ($status)' : ''}${data != null ? ' - $data' : ''}';
+      
+      
+      emit(QuestionsSubmitFailure(ErrorModel.fromJson( e.response?.data ?? {})));
       return false;
     } catch (e) {
       print('Unexpected error: $e');
       final message = e.toString();
-      emit(QuestionsSubmitFailure(message));
+      emit(QuestionsSubmitFailure(ErrorModel(
+        statusCode: 500,
+        isSuccess: false,
+        errorMessages: [message],
+      )));
       return false;
     }
   }

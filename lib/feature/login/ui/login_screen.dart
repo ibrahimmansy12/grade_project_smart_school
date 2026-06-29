@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
             // Check if roles match
             if (savedRole.isNotEmpty &&
                 apiRole != null &&
-                savedRole != apiRole) {
+                savedRole != apiRole &&context.mounted) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text('Role mismatch error! Please login again.'),
@@ -87,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
             final targetRoute = switch (role) {
               'parent' => IRouts.homeSelectScreen,
-              'student' => IRouts.parentWelcomeBackScreen,
+              'student' => IRouts.welcomeBackStudentScreen,
               _ => IRouts.onpordingScreen,
             };
 
@@ -100,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
           } else if (state is LoginFailure) {
             ScaffoldMessenger.of(
               context,
-            ).showSnackBar(SnackBar(content: Text(state.message)));
+            ).showSnackBar(SnackBar(content: Text(state.errorModel.errorMessages!.join(",").toString())));
           }
         }
       },
@@ -151,32 +151,33 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                           ),
                           SizedBox(height: 1.h),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Don't have an account? ",
-                                style: TextStyle(
-                                  fontSize: 15.sp,
-                                  color: Colors.grey[700],
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  context.pushNamed(IRouts.registerScreen);
-                                },
-                                child: Text(
-                                  'register',
-                                  style: TextStyle(
-                                    fontSize: 15.sp,
-                                    color: const Color(0xFF6EA9D5),
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.center,
+                          //   crossAxisAlignment: CrossAxisAlignment.start,
+                          //   children: [
+                          //     Text(
+                          //       "Don't have an account? ",
+                          //       style: TextStyle(
+                          //         fontSize: 15.sp,
+                          //         color: Colors.grey[700],
+                          //       ),
+                          //     ),
+                          //     GestureDetector(
+                          //       onTap: () {
+                          //         context.pushNamed(IRouts.registerScreen);
+                          //       },
+                          //       child: Text(
+                          //         'register',
+                          //         style: TextStyle(
+                          //           fontSize: 15.sp,
+                          //           color: const Color(0xFF6EA9D5),
+                          //           fontWeight: FontWeight.w700,
+                          //         ),
+                          //       ),
+                          //     ),
+                          //   ],
+                          // ),
+                         
                           SizedBox(height: 5.h),
                         ],
                       ),

@@ -8,15 +8,16 @@ class ReportInitial extends ReportState {}
 class Reportloading extends ReportState {}
 
 class ReportFailure extends ReportState {
-  final String errorMessage;
+    final ErrorModel errorModel;
 
-  ReportFailure({required this.errorMessage});
+
+  ReportFailure({required this.errorModel});
 }
 class ReportSucess extends ReportState {
    ReportSucess({
-    this.reportItems,
+     this.reportItems,
   });
-  final StudentWeeklyReport? reportItems;
+  final List< StudentWeeklyReport?>? reportItems;
  
 
   }

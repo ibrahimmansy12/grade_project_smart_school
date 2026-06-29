@@ -10,7 +10,8 @@ class IRouts {
   static const String welcomeBack2Page = "/welcomeBack2Page";
   static const String welcome3Screen = "/welcome3Screen";
 
-  static const String parentWelcomeBackScreen = "/parentWelcomeBackScreen";
+  static const String welcomeBackStudentScreen =
+      "/welcomeBackStudentScreen";
   static const String repeteScreen = "/repeteScreen";
 
   static const String riskScreen = "/riskScreen";

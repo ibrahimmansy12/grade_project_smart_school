@@ -5,7 +5,7 @@ class WeeklyReportsModel {
   final int statusCode;
   final bool isSuccess;
   final List<String>? errorMessages;
-  final StudentWeeklyReport? result;
+  final List<StudentWeeklyReport?> result;
 
   WeeklyReportsModel({
     required this.statusCode,
@@ -21,14 +21,14 @@ class WeeklyReportsModel {
       errorMessages: json['errorMessages'] != null
           ? List<String>.from(json['errorMessages'])
           : null,
-      result: json['result'] != null
-          ? StudentWeeklyReport.fromJson(json['result'] as Map<String, dynamic>)
-          : null,
+      //   result: json['result'] != null
+      //       ? StudentWeeklyReport.fromJson(json['result'] as Map<String, dynamic>)
+      //       : null,
+      // );
+      result: (json['result'] as List)
+          .map((e) => StudentWeeklyReport.fromJson(e))
+          .toList(),
     );
-    //   result: (json['result'] as List)
-    //       .map((e) => StudentWeeklyReport.fromJson(e))
-    //       .toList(),
-    // );
   }
 
   Map<String, dynamic> toJson() {
@@ -36,8 +36,7 @@ class WeeklyReportsModel {
       'statusCode': statusCode,
       'isSuccess': isSuccess,
       'errorMessages': errorMessages,
-      'result': result
-          ?.toJson(), // Assuming StudentWeeklyReport has a toJson method
+      'result': result, // Assuming StudentWeeklyReport has a toJson method
     };
   }
 }
@@ -121,8 +120,5 @@ class StudentWeeklyReport {
 class StudentWeeklyReportmodelWithList {
   final StudentWeeklyReport? result;
   List<StudentWeeklyReport> resultList;
-  StudentWeeklyReportmodelWithList({
-    this.result,
-    required this.resultList,
-  });
+  StudentWeeklyReportmodelWithList({this.result, required this.resultList});
 }

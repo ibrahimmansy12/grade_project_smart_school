@@ -6,6 +6,7 @@ import 'package:dio/dio.dart';
 import 'package:grade_project/core/helper/constance_helper.dart';
 import 'package:grade_project/core/helper/shared_prefrance_helper.dart';
 import 'package:grade_project/core/networking/dio_factory.dart';
+import 'package:grade_project/core/networking/error_model.dart';
 import 'package:grade_project/feature/login/data/model/get_student_id_model.dart';
 import 'package:grade_project/feature/login/data/model/login_response_model.dart';
 
@@ -35,14 +36,15 @@ class LoginCubit extends Cubit<LoginState> {
         '$baseUrl/user/login',
         data: {'userName': userName, 'password': password},
       );
+       final data = resp.data;
+        final model = LoginResponse.fromJson(data);
 
       final status = resp.statusCode ?? 0;
       if (status >= 100) {
-        final data = resp.data is Map<String, dynamic>
+        data is Map<String, dynamic>
             ? resp.data as Map<String, dynamic>
             : Map<String, dynamic>.from(resp.data as Map);
 
-        final model = LoginResponse.fromJson(data);
 
         if (model.isSuccess && model.result != null) {
           print('Token: ${model.result!.token}');
@@ -77,30 +79,39 @@ class LoginCubit extends Cubit<LoginState> {
             ),
           );
         } else {
-          final errors = model.errorMessages;
-          final msg = (errors != null && errors.isNotEmpty)
-              ? errors.join(', ')
-              : 'Login failed';
-          emit(LoginFailure(msg));
+          // final errors = model.errorMessages;
+          // final msg = (errors != null && errors.isNotEmpty)
+          //     ? errors.join(', ')
+          //     : 'Login failed';
+          emit(LoginFailure(ErrorModel(statusCode: model.statusCode, isSuccess: model.isSuccess,errorMessages: model.errorMessages)));
         }
 
         return model;
       } else {
-        final msg = 'Server error: $status - ${resp.data}';
-        emit(LoginFailure(msg));
+        // final msg = 'Server error: $status - ${resp.data}';
+          emit(LoginFailure(ErrorModel(statusCode: model.statusCode, isSuccess: model.isSuccess,errorMessages: model.errorMessages)));
         return null;
       }
     } catch (e) {
-      String msg;
-      if (e is DioException && e.response != null) {
-        final r = e.response!;
-        msg = 'Dio error: ${e.message} - ${r.statusCode} ${r.data}';
-      } else if (e is DioException) {
-        msg = 'Dio error: ${e.message}';
-      } else {
-        msg = e.toString();
-      }
-      emit(LoginFailure(msg));
+    // DioException  e = DioException(error: e);
+    if(e is DioException ){
+      DioException? dioError;
+
+        emit(LoginFailure(ErrorModel(
+        statusCode: dioError!.response?.data.statusCode,
+        isSuccess: false,
+        errorMessages: e.message.toString().split(" "),
+      )));
+    }
+      // if ( e is DioException&& e.response != null) {
+      //   final r = e.response!;
+      //   msg = ;
+      // } else if (e is DioException) {
+      //   msg = 'Dio error: ${e.message}';
+      // } else {
+      //   msg = e.toString();
+      // }
+    
       return null;
     }
   }

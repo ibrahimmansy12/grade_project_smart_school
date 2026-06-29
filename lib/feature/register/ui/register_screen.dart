@@ -85,75 +85,79 @@ class _RegisterScreenState extends State<RegisterScreen> {
         resizeToAvoidBottomInset: false,
         backgroundColor: const Color(0xFFF5F5F5),
         body: SafeArea(
-          child: Stack(
+          child: ListView(
             children: [
-              const RegisterBigRoundContainer(),
-              const RegisterHomeImage(),
-              SingleChildScrollView(
-                padding: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).viewInsets.bottom,
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 7.w),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(height: 40.h),
-                      const RegisterTitle(),
-                      SizedBox(height: 2.h),
-                      RegisterBuildInput(
-                        controller: _userNameController,
-                        hint: 'userName',
-                        icon: Icons.person_outline,
+              Stack(
+                children: [
+                  const RegisterBigRoundContainer(),
+                  const RegisterHomeImage(),
+                  SingleChildScrollView(
+                    padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).viewInsets.bottom,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 7.w),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(height: 40.h),
+                          const RegisterTitle(),
+                          SizedBox(height: 2.h),
+                          RegisterBuildInput(
+                            controller: _userNameController,
+                            hint: 'userName',
+                            icon: Icons.person_outline,
+                          ),
+                          SizedBox(height: 2.h),
+                          RegisterBuildInput(
+                            controller: _emailController,
+                            hint: 'email',
+                            icon: Icons.email_outlined,
+                          ),
+                          SizedBox(height: 2.h),
+                          RegisterBuildInput(
+                            controller: _passwordController,
+                            hint: 'password',
+                            icon: Icons.lock,
+                            obscure: true,
+                          ),
+                          SizedBox(height: 2.h),
+                          RegisterBuildInput(
+                            controller: _phoneController,
+                            hint: 'phone number',
+                            icon: Icons.phone,
+                          ),
+                          SizedBox(height: 2.h),
+                          RegisterBuildInput(
+                            controller: _roleIdController,
+                            hint: 'role ID',
+                            icon: Icons.badge_outlined,
+                          ),
+                          SizedBox(height: 4.h),
+                          RegisterButton(
+                            onPressed: () {
+                              final userName = _userNameController.text.trim();
+                              final email = _emailController.text.trim();
+                              final password = _passwordController.text.trim();
+                              final phoneNumber = _phoneController.text.trim();
+                              final roleIdText = _roleIdController.text.trim();
+                              final roleID = int.tryParse(roleIdText) ?? 0;
+              
+                              context.read<RegisterCubit>().register(
+                                userName: userName,
+                                email: email,
+                                password: password,
+                                phoneNumber: phoneNumber,
+                                roleID: roleID,
+                              );
+                            },
+                          ),
+                          SizedBox(height: 8.h),
+                        ],
                       ),
-                      SizedBox(height: 2.h),
-                      RegisterBuildInput(
-                        controller: _emailController,
-                        hint: 'email',
-                        icon: Icons.email_outlined,
-                      ),
-                      SizedBox(height: 2.h),
-                      RegisterBuildInput(
-                        controller: _passwordController,
-                        hint: 'password',
-                        icon: Icons.lock,
-                        obscure: true,
-                      ),
-                      SizedBox(height: 2.h),
-                      RegisterBuildInput(
-                        controller: _phoneController,
-                        hint: 'phone number',
-                        icon: Icons.phone,
-                      ),
-                      SizedBox(height: 2.h),
-                      RegisterBuildInput(
-                        controller: _roleIdController,
-                        hint: 'role ID',
-                        icon: Icons.badge_outlined,
-                      ),
-                      SizedBox(height: 4.h),
-                      RegisterButton(
-                        onPressed: () {
-                          final userName = _userNameController.text.trim();
-                          final email = _emailController.text.trim();
-                          final password = _passwordController.text.trim();
-                          final phoneNumber = _phoneController.text.trim();
-                          final roleIdText = _roleIdController.text.trim();
-                          final roleID = int.tryParse(roleIdText) ?? 0;
-
-                          context.read<RegisterCubit>().register(
-                            userName: userName,
-                            email: email,
-                            password: password,
-                            phoneNumber: phoneNumber,
-                            roleID: roleID,
-                          );
-                        },
-                      ),
-                      SizedBox(height: 8.h),
-                    ],
+                    ),
                   ),
-                ),
+                ],
               ),
             ],
           ),
