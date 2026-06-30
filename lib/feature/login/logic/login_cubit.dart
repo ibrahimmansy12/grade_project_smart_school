@@ -1,8 +1,9 @@
 // feature/login/logic/login_cubit.dart
 
 // feature/login/logic/login_cubit.dart
-import 'package:bloc/bloc.dart';
+// import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grade_project/core/helper/constance_helper.dart';
 import 'package:grade_project/core/helper/shared_prefrance_helper.dart';
 import 'package:grade_project/core/networking/dio_factory.dart';
@@ -47,8 +48,6 @@ class LoginCubit extends Cubit<LoginState> {
 
 
         if (model.isSuccess && model.result != null) {
-          print('Token: ${model.result!.token}');
-          print('User ID: ${model.result!.userId}');
 
           // حفظ التوكن
           await setToken(model.result!.token);
@@ -65,9 +64,7 @@ class LoginCubit extends Cubit<LoginState> {
 
           if (studentId != null) {
             await setStudentId(studentId);
-            print('Student ID saved: $studentId');
           } else {
-            print('Warning: Could not fetch Student ID');
           }
 
           emit(
@@ -139,7 +136,6 @@ class LoginCubit extends Cubit<LoginState> {
     required int parentId,
     required String token,
   }) async {
-    print('Getting Student ID for Parent ID: $parentId');
     
     try {
       final dio = Dio(
@@ -157,8 +153,6 @@ class LoginCubit extends Cubit<LoginState> {
         '$baseUrl/Report/$parentId',
       );
 
-      print('Response Status: ${response.statusCode}');
-      print('Response Data: ${response.data}');
 
       if (response.statusCode == 200) {
         // ✅ التحويل الصحيح باستخدام fromJson
@@ -168,33 +162,24 @@ class LoginCubit extends Cubit<LoginState> {
 
         if (parentStudentResponse.isSuccess) {
           final studentId = parentStudentResponse.result?.studentId;
-          print('Student ID fetched: $studentId');
           return studentId;
         } else {
-          print('API returned error: ${parentStudentResponse.errorMessages}');
           return null;
         }
       } else {
-        print('Unexpected status code: ${response.statusCode}');
         return null;
       }
       
     } on DioException catch (e) {
-      print('Dio Error in getStudentId: ${e.message}');
       if (e.response != null) {
-        print('Status Code: ${e.response?.statusCode}');
-        print('Response Data: ${e.response?.data}');
         
         if (e.response?.statusCode == 401) {
-          print('Token expired, need to login again');
         } else if (e.response?.statusCode == 404) {
-          print('Parent ID not found: $parentId');
         }
       }
       return null;
       
     } catch (e) {
-      print('Unexpected Error in getStudentId: $e');
       return null;
     }
   }
@@ -264,21 +249,21 @@ class LoginCubit extends Cubit<LoginState> {
 //         final model = LoginResponse.fromJson(data);
 
 //         if (model.isSuccess && model.result != null) {
-//           print(':::::::;;;;;${model.result!.token}');
-//           print(';;;;;;;${model.result!}');
-//           print("Parent userId::::::: ${model.result!.userId}");
+//           //print(':::::::;;;;;${model.result!.token}');
+//           //print(';;;;;;;${model.result!}');
+//           //print("Parent userId::::::: ${model.result!.userId}");
 
 //           setToken(model.result!.token);
-//           print("Token for getStudentIdapi: -----------------------------");
+//           //print("Token for getStudentIdapi: -----------------------------");
 //           int studentId = await getStudentIdapi(
 //             model.result!.userId,
 //             model.result!.token,
 //           );
-//           print("Parent userId::::::: ${model.result!.userId}");
-//           // print("Parent userId::::::: ${model.result!.}");
-//           print("Student ID:::::::::: $studentId");
+//           //print("Parent userId::::::: ${model.result!.userId}");
+//           // //print("Parent userId::::::: ${model.result!.}");
+//           //print("Student ID:::::::::: $studentId");
 
-//           // print("Error fetching student ID:::::: $e");
+//           // //print("Error fetching student ID:::::: $e");
 
 //           // getStudentIdapi(model.result!.userId);
 //           emit(
@@ -334,9 +319,9 @@ class LoginCubit extends Cubit<LoginState> {
 //   }
 
 //   Future getStudentIdapi(int id, String token) async {
-//     print("Getting student ID for parent ID: $id");
+//     //print("Getting student ID for parent ID: $id");
 //     try {
-//       print("Token for getStudentIdapi: -----------------------------");
+//       //print("Token for getStudentIdapi: -----------------------------");
 //       final dio = Dio(
 //         BaseOptions(
 //           connectTimeout: const Duration(seconds: 20),
@@ -364,7 +349,7 @@ class LoginCubit extends Cubit<LoginState> {
 //         }
 //       }
 //     } catch (e) {
-//       print("Error in getStudentIdapi****::: $e");
+//       //print("Error in getStudentIdapi****::: $e");
 //       throw Exception('Failed to fetch student ID*****::::: $e');
 //     }
 //   }

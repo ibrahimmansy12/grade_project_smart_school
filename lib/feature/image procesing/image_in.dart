@@ -100,7 +100,7 @@ class _ImageInState extends State<ImageIn> {
                         }
                       }
                     } catch (e) {
-                      print("============>>>>>>>>>Caught error in UI: $e");
+                      // //print("============>>>>>>>>>Caught error in UI: $e");
                       if (context.mounted) {
                         Navigator.of(context).pop();
                         ScaffoldMessenger.of(

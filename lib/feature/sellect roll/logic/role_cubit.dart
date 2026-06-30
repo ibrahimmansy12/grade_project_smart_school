@@ -43,10 +43,10 @@ class RoleCubit extends Cubit<RoleState> {
   Future<void> loadSavedRole() async {
     final savedRole = await getSavedRoleFromPrefs();
     if (savedRole.isNotEmpty) {
-      print("Loaded saved role: $savedRole =========");
+      //print("Loaded saved role: $savedRole =========");
       emit(RoleSelected(role: savedRole));
     } else {
-      print("No saved role found.=========");
+      //print("No saved role found.=========");
       emit(RoleUnselected());
     }
   }

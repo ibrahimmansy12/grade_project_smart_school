@@ -24,12 +24,12 @@ class ImageOut extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Debug: طباعة البيانات
-    if (result != null) {
-      print('🖼️ Original URL: ${result!.imageUrl}');
-      print('🔗 Direct URL: ${_getDirectImageUrl(result!.imageUrl)}');
-      print('📊 Behavior: ${result!.behavior}');
-      print('📈 Confidence: ${result!.confidence}');
-    }
+    // if (result != null) {
+    //   //print('🖼️ Original URL: ${result!.imageUrl}');
+    //   //print('🔗 Direct URL: ${_getDirectImageUrl(result!.imageUrl)}');
+    //   //print('📊 Behavior: ${result!.behavior}');
+    //   //print('📈 Confidence: ${result!.confidence}');
+    // }
 
     final directImageUrl = result != null
         ? _getDirectImageUrl(result!.imageUrl)
@@ -81,7 +81,7 @@ class ImageOut extends StatelessWidget {
                             );
                           },
                           errorBuilder: (context, error, stackTrace) {
-                            print('❌ Image load error: $error');
+                            // //print('❌ Image load error: $error');
                             return Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [

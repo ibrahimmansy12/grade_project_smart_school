@@ -47,9 +47,9 @@ Future<void> checkedLogedIn() async {
       'student' => IRouts.welcomeBackStudentScreen,
       _ => IRouts.onpordingScreen,
     };
-    print(
-      "==============user token is $userToken ======is login is {$isLogedInUser}",
-    );
+    //print(
+    //   "==============user token is $userToken ======is login is {$isLogedInUser}",
+    // );
   } else {
     isLogedInUser = false;
     _loggedInInitialRoute = IRouts.onpordingScreen;

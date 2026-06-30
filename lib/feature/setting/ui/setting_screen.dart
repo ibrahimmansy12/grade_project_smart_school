@@ -1,6 +1,5 @@
 // feature/setting/ui/setting_screen.dart
 import 'package:flutter/material.dart';
-import 'package:grade_project/core/helper/constance_helper.dart';
 import 'package:grade_project/core/helper/extention.dart';
 import 'package:grade_project/core/helper/shared_prefrance_helper.dart';
 import 'package:grade_project/core/routing/routs.dart';
@@ -67,7 +66,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 LogoutButton(
                   onPressed: () {
                     SharedPrefHelper.clearAllSecuredData();
-                    print("Cleared all secured data token ???? ${SharedPrefHelper.getSecuredString(SharedPrefranceKeys.userToken).toString()}");
+                    //print("Cleared all secured data token ???? ${SharedPrefHelper.getSecuredString(SharedPrefranceKeys.userToken).toString()}");
                     context.pushNamedAndRemoveUntil(
                       IRouts.onpordingScreen,
                       predicate: (route) => false,

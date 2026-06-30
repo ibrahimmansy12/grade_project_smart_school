@@ -1,8 +1,6 @@
 // feature/report/logic/report_cubit.dart
-import 'dart:convert';
-
-import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grade_project/core/helper/constance_helper.dart';
 import 'package:grade_project/core/helper/shared_prefrance_helper.dart';
 import 'package:grade_project/core/networking/error_model.dart';
@@ -18,19 +16,19 @@ class ReportCubit extends Cubit<ReportState> {
   }
 
   Future<String> getuserid() async {
-    print(
-      "user id: ******${SharedPrefHelper.getSecuredString(SharedPrefranceKeys.userId)}",
-    );
+    //print(
+    //   "user id: ******${SharedPrefHelper.getSecuredString(SharedPrefranceKeys.userId)}",
+    // );
     return SharedPrefHelper.getSecuredString(SharedPrefranceKeys.userId);
-    // print("user id: ******${SharedPrefHelper.getInt(SharedPrefranceKeys.userId)}");
+    // //print("user id: ******${SharedPrefHelper.getInt(SharedPrefranceKeys.userId)}");
   }
 
   Future getReports() async {
     try {
       emit(Reportloading());
       int? id = int.parse(await getuserid());
-      print("user id:99999 ******$id");
-      print('2222222$baseUrl/Report/$id');
+      //print("user id:99999 ******$id");
+      //print('2222222$baseUrl/Report/$id');
       final url = '$baseUrl/Report/$id';
       final token = await getToken();
 
@@ -49,11 +47,11 @@ class ReportCubit extends Cubit<ReportState> {
         ),
       );
       final raw = response.data ?? {};
-      print("report raw: ******$raw");
+      //print("report raw: ******$raw");
       final model = WeeklyReportsModel.fromJson(raw);
 
       emit(ReportSucess(reportItems: model.result));
-      print(json.encode(response.data));
+      //print(json.encode(response.data));
       return model;
     } catch (e) {
       if (e is DioException) {
@@ -89,8 +87,8 @@ var response = await dio.request(
 );
 
 if (response.statusCode == 200) {
-  print(json.encode(response.data));
+  //print(json.encode(response.data));
 }
 else {
-  print(response.statusMessage);
+  //print(response.statusMessage);
 } */

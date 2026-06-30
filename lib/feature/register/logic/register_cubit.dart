@@ -49,7 +49,7 @@ class RegisterCubit extends Cubit<RegisterState> {
           (response.statusCode ?? 0) < 300) {
         emit(RegisterSuccess(model, message: 'Registered successfully'));
       } else {
-        print("object--*******//---${model.errorMessage}");
+        //print("object--*******//---${model.errorMessage}");
         emit(RegisterFailure(model.errorMessage));
       }
 
@@ -67,7 +67,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       emit(RegisterFailure(message));
       return null;
     } catch (e) {
-      print("-------$e");
+      //print("-------$e");
 
       emit(RegisterFailure(e.toString()));
       return null;

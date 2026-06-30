@@ -18,18 +18,12 @@ class ImagequbitCubit extends Cubit<ImagequbitState> {
 
     try {
       final token = await getToken();
-      print("🔑 Token: $token");
-      print("🖼️ Image URL: $url");
 
       var headers = {
         'Content-Type': 'application/json',
-        "Authorization": "Bearer $token"
+        "Authorization": "Bearer $token",
       };
-      var data = json.encode({
-        "url": url,
-      });
-
-      print("📤 Sending request with data: $data");
+      var data = json.encode({"url": url});
 
       var dio = Dio();
       final response = await dio.request(
@@ -37,8 +31,6 @@ class ImagequbitCubit extends Cubit<ImagequbitState> {
         options: Options(method: 'POST', headers: headers),
         data: data,
       );
-      print("✅ Response status: ${response.statusCode}");
-      print("📦 Response data: ${response.data}");
 
       final status = response.statusCode ?? 0;
       if (status >= 200 && status < 300) {
@@ -70,18 +62,13 @@ class ImagequbitCubit extends Cubit<ImagequbitState> {
         );
       }
     } catch (e) {
-      print("============>>>>>>>>>Caught error in sendImageUrl: $e");
-      
       // handle Dio errors with response body (like 400 validation)
       if (e is DioException && e.response != null) {
         final r = e.response!;
         final status = r.statusCode ?? 0;
-        
+
         // طباعة تفاصيل الخطأ من السيرفر
-        print("❌ Server Error Status: $status");
-        print("❌ Server Response Data: ${r.data}");
-        print("❌ Server Message: ${r.statusMessage}");
-        
+
         // try to extract server validation messages
         try {
           final data = r.data;
@@ -114,8 +101,8 @@ class ImagequbitCubit extends Cubit<ImagequbitState> {
             final msg = errors != null
                 ? errors.join(', ')
                 : 'Server error: $status';
-            // ignore: avoid_print
-            print('analyzeImage error response: $data');
+            // ignore: avoid_//print
+            //print('analyzeImage error response: $data');
             emit(ImagequbitError(msg));
             return model;
           }
@@ -123,8 +110,8 @@ class ImagequbitCubit extends Cubit<ImagequbitState> {
           // fallthrough to generic handling
         }
         final msg = 'Dio error: ${e.message} - ${r.statusCode} ${r.data}';
-        // ignore: avoid_print
-        print('analyzeImage error: $msg');
+        // ignore: avoid_//print
+        //print('analyzeImage error: $msg');
         emit(ImagequbitError(msg));
         return ImageAnalyzeResponse(
           statusCode: r.statusCode ?? 0,
@@ -135,8 +122,8 @@ class ImagequbitCubit extends Cubit<ImagequbitState> {
       }
 
       final msg = e is DioException ? 'Dio error: ${e.message}' : e.toString();
-      // ignore: avoid_print
-      print('analyzeImage error: $msg');
+      // ignore: avoid_//print
+      //print('analyzeImage error: $msg');
       emit(ImagequbitError(msg));
       return ImageAnalyzeResponse(
         statusCode: 0,
@@ -146,10 +133,11 @@ class ImagequbitCubit extends Cubit<ImagequbitState> {
       );
     }
   }
+
   Future<String> getToken() async {
     return await SharedPrefHelper.getSecuredString(
-        SharedPrefranceKeys.userToken);
-   
+      SharedPrefranceKeys.userToken,
+    );
   }
 }
 

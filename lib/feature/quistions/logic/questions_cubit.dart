@@ -1,6 +1,6 @@
 // feature/quistions/logic/questions_cubit.dart
-import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grade_project/core/helper/constance_helper.dart';
 import 'package:grade_project/core/helper/shared_prefrance_helper.dart';
 import 'package:grade_project/core/networking/error_model.dart';
@@ -23,9 +23,9 @@ class QuestionsCubit extends Cubit<QuestionsState> {
       final token = await getToken();
       final url = '$baseUrl/quizzes/$testId';
 
-      print('=== Questions API Call ===');
-      print('URL: $url');
-      print('Token: ${token.isEmpty ? "No token" : "Token present"}');
+      //print('=== Questions API Call ===');
+      //print('URL: $url');
+      //print('Token: ${token.isEmpty ? "No token" : "Token present"}');
 
       final response = await _dio.get(
         url,
@@ -39,13 +39,13 @@ class QuestionsCubit extends Cubit<QuestionsState> {
         ),
       );
 
-      print('Status Code: ${response.statusCode}');
-      print('Response Data: ${response.data}');
+      //print('Status Code: ${response.statusCode}');
+      //print('Response Data: ${response.data}');
 
       final raw = response.data;
       if (raw is! Map<String, dynamic>) {
         const message = 'Unexpected response format';
-        print('Error: $message');
+        //print('Error: $message');
         emit(QuestionsFailure(ErrorModel(
           statusCode: response.statusCode ?? 0,
           isSuccess: false,
@@ -55,21 +55,21 @@ class QuestionsCubit extends Cubit<QuestionsState> {
       }
 
       final model = QuestionsTestResponse.fromJson(raw);
-      print(
-        'Parsed Model - Success: ${model.isSuccess}, Result: ${model.result != null}',
-      );
+      //print(
+      //   'Parsed Model - Success: ${model.isSuccess}, Result: ${model.result != null}',
+      // );
 
       if (model.isSuccess && model.result != null) {
-        print(
-          'Questions loaded successfully: ${model.result!.questions.length} questions',
-        );
+        //print(
+        //   'Questions loaded successfully: ${model.result!.questions.length} questions',
+        // );
         emit(QuestionsSuccess(model));
       } else {
         final errors = model.errorMessages;
         final message = (errors != null && errors.isNotEmpty)
             ? errors.join(', ')
             : 'Failed to load questions';
-        print('API returned failure: $message');
+        //print('API returned failure: $message');
         emit(QuestionsFailure(ErrorModel(
           statusCode: response.statusCode ?? 0,
           isSuccess: false,
@@ -83,8 +83,8 @@ class QuestionsCubit extends Cubit<QuestionsState> {
       final data = e.response?.data;
       final message =
           'Dio error: ${e.message}${status != null ? ' ($status)' : ''}${data != null ? ' - $data' : ''}';
-      print('DioException: $message');
-      print('Full error: $e');
+      //print('DioException: $message');
+      //print('Full error: $e');
       emit(QuestionsFailure(ErrorModel(
         statusCode: 500,
         isSuccess: false,
@@ -93,7 +93,7 @@ class QuestionsCubit extends Cubit<QuestionsState> {
       return null;
     } catch (e) {
       final message = e.toString();
-      print('Unexpected error: $message');
+      //print('Unexpected error: $message');
       emit(QuestionsFailure(ErrorModel(
         statusCode: 500,
         isSuccess: false,
@@ -151,9 +151,9 @@ class QuestionsCubit extends Cubit<QuestionsState> {
       final url = '$baseUrl/quizzes/$quizId/submit';
       final payload = buildSubmissionPayload(studentId: resolvedStudentId);
 
-      print('=== Questions Submit API Call ===');
-      print('URL: $url');
-      print('Payload: ${payload.toJson()}');
+      //print('=== Questions Submit API Call ===');
+      //print('URL: $url');
+      //print('Payload: ${payload.toJson()}');
 
       final response = await _dio.post(
         url,
@@ -193,7 +193,7 @@ class QuestionsCubit extends Cubit<QuestionsState> {
       emit(QuestionsSubmitFailure(ErrorModel.fromJson( e.response?.data ?? {})));
       return false;
     } catch (e) {
-      print('Unexpected error: $e');
+      //print('Unexpected error: $e');
       final message = e.toString();
       emit(QuestionsSubmitFailure(ErrorModel(
         statusCode: 500,
